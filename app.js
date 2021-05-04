@@ -102,7 +102,7 @@ app.get('/ourworks',  (req,res,next)=>{
     res.sendFile(path.join(__dirname,'../','git-project', 'views','ourWorks.html'))
 
 })
-app.get('/', (req,res,next)=>{
+app.get('https://pulkitupadhyay-my-lernings-6965.zeet.app', (req,res,next)=>{
 
     // console.log(req.body)
     res.sendFile(path.join(__dirname,'../','git-project', 'views','surveyForm.html'))
