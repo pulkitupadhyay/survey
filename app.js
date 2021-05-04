@@ -3,7 +3,7 @@ const http = require('http')
 const express = require('express')
  const app = express();
  const hostname = '0.0.0.0';
- const port = 3000;
+ const port = process.env.PORT || 3000;
 
 var bodyParser = require('body-parser'); 
 app.use(bodyParser.json()); // to support JSON bodies
