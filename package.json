@@ -1,7 +1,6 @@
 {
   "name": "swachhta_project",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
@@ -10,9 +9,17 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "mongoose": "^5.12.6"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.6",
+    "nodemon": "^2.0.7"
   },
-  "devDependencies": {
-    "express": "^4.17.1"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pulkitupadhyay/my-lernings.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pulkitupadhyay/my-lernings/issues"
+  },
+  "homepage": "https://github.com/pulkitupadhyay/my-lernings#readme",
+  "description": ""
 }
