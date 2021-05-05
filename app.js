@@ -72,11 +72,7 @@ const suggetionSchema = new mongoose.Schema({
 const Survey = mongoose.model( 'Survey', surveySchema);
 const Suggetion = mongoose.model( 'Suggetion', suggetionSchema);
 
-app.get('/suggetions',  (req,res,next)=>{
 
-res.sendFile(path.join(__dirname,'../','git-project', 'views','suggetions.html'))
-
-})
 
 app.get('/user/contactUus', (req,res,next)=>{
 
@@ -102,6 +98,11 @@ app.get('/ourworks',  (req,res,next)=>{
     res.sendFile(path.join(__dirname,'../','git-project', 'views','ourWorks.html'))
 
 })
+app.get('/suggetions',  (req,res,next)=>{
+
+    res.sendFile(path.join(__dirname,'../','git-project', 'views','suggetions.html'))
+    
+    })
 app.get('/', (req,res,next)=>{
 
     // console.log(req.body)
