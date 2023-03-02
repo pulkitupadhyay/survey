@@ -7,6 +7,8 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+// this is to inform that changes has been done 
+
 router.get('/menu', function(req, res, next) {
   res.render('menu');
 });
