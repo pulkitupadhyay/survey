@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
  //  express.static(path.join(__dirname, '/SWACHHTA_PROJECT'));
  const mongoose = require('mongoose')
 //  const router = express.Router()
-
+// this is to make change
 
 
  mongoose.connect('mongodb+srv://pulkit:shraddhap@cluster0.hochl.mongodb.net/survey?retryWrites=true&w=majority', {
