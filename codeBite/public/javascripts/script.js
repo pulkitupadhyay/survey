@@ -1,10 +1,10 @@
 
-new kursor({
-  type: 1,
-  color: "rgb(68,72,87)",
-  removeDefaultCursor: true,
+// new kursor({
+//   type: 1,
+//   color: "rgb(68,72,87)",
+//   // removeDefaultCursor: true,
 
-})
+// })
 var loader = document.querySelector("#loader")
 window.addEventListener("load", function () {
   loader.style.display = "none"

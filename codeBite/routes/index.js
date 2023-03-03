@@ -17,7 +17,9 @@ router.get('/menu', function (req, res, next) {
 router.get('/login', (req, res, next) => {
   res.render('login');
 });
-
+router.get('/signUp', (req, res, next) => {
+  res.render('signUp');
+});
 router.get('/price/1', function (req, res, next) {
   var id = req.params.id;
   res.render('price', { id });
