@@ -31,38 +31,57 @@
          <div id="left">
            
              <div id="bigbox">
-                 <img src="https://images.unsplash.com/photo-1594847915592-2a7ef568e2b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1860&q=80">
+                 <img src="/upload/<%= product.image %>" alt="not photo" />  
             </div>
              </div>
-             <div id="sml1" class="imgbox">
+            
+             <% for(var i = 0; i < 4; i++) {%>
+             
+             <div id="sml<%=i+1%>" class="imgbox">
+                  <img src="/upload/<%= displayItems[i].image%>" alt="">
+               </div>
+             <% } %>
+
+
+             <!-- <div id="sml1" class="imgbox">
                 <img src="https://m.media-amazon.com/images/I/A18tnpMtC-L._AC_SY741_.jpg" alt="">
-             </div>
-             <div id="sml2" class="imgbox">
-                <img src="https://m.media-amazon.com/images/I/A12vrfB4TqL._AC_SX522_.jpg" alt="">
-             </div>
-             <div id="sml3" class="imgbox">
-                <img src="https://m.media-amazon.com/images/I/71z2Fh7TbqL._AC_US100_.jpg" alt="">
-             </div>
-             <div id="sml4" class="imgbox">
-                <img src="https://m.media-amazon.com/images/I/61oo+HeNR3L._AC_US100_.jpg" alt="">
-             </div>
-             <!-- <div id="imgbox">
-                <img src="https://m.media-amazon.com/images/I/61oo+HeNR3L._AC_US100_.jpg" alt="">
              </div> -->
+               <!-- <div id="sml2" class="imgbox">
+                  <img src="https://m.media-amazon.com/images/I/A12vrfB4TqL._AC_SX522_.jpg" alt="">
+               </div>
+               <div id="sml3" class="imgbox">
+                  <img src="https://m.media-amazon.com/images/I/71z2Fh7TbqL._AC_US100_.jpg" alt="">
+               </div>
+               <div id="sml4" class="imgbox">
+                  <img src="https://m.media-amazon.com/images/I/61oo+HeNR3L._AC_US100_.jpg" alt="">
+               </div>
+               <div id="imgbox">
+                  <img src="https://m.media-amazon.com/images/I/61oo+HeNR3L._AC_US100_.jpg" alt="">
+               </div> -->
              
             
      
  
          
          <div id="right">
-             <h1>Kamirri Rugs</h1>
+             <h1><%= product.title %></h1>
              <h2>Size</h2>
              <div id="s1" class="sizebox">   <h4> ready to Ship  <br> 4x6 ft <br> 120x180 cm </h4></div>
              <div id="s2" class="sizebox"> <h4>  ready to ship   <p>4x6 ft  <br>   120x180 cm  </h4> </div>
              <div id="s3" class="sizebox">  <h4> Made to order   <br> 5x8 ft <br>  120x180 cm   </h4> </div>
        
                 <h3>More From This Collection</h3>
-                <div id="i1" class="otherImg">
+                <% for(var i = 0; i < displayItems.length; i++) {%>
+             
+                  <div id="i<%=i+1%>" onclick="javascript:window.location.href='/price/<%= displayItems[i]._id %>'" class="imgbox">
+                       <img src="/upload/<%= displayItems[i].image%>" alt="">
+                <p><%= displayItems[i].title %></p>
+                   
+                     </div>
+                  <% } %>
+              
+              
+                <!-- <div id="i1" class="otherImg">
                     <img src="https://d3o59fu9acgbkr.cloudfront.net/fit-in/300x400/prod-images/Headshot/Large/RCT_LCA-2352-0002.jpg" alt="">
                 </div>
                 <div id="i2" class="otherImg">
@@ -73,9 +92,9 @@
                  </div>
                  <div id="i4" class="otherImg">
                     <img src="https://d3o59fu9acgbkr.cloudfront.net/fit-in/300x400/prod-images/Headshot/Large/RCT_LCA-202-0007.jpg" alt="">
-                 </div>
+                 </div> -->
                  <!-- <div id="i5" class="otherImg"></div> -->
-                 <h4>₹4,490 - ₹,94,700
+                 <h4><%= product.price %> $
                   (Inclusive of all taxes)</h4>
     
                  <div class="buttons">

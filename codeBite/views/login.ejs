@@ -25,13 +25,13 @@
           <div class="user_options-forms" id="user_options-forms">
             <div class="user_forms-login">
               <h2 class="forms_title">Login</h2>
-              <form class="forms_form">
+              <form class="forms_form" action="/login" method="POST">
                 <fieldset class="forms_fieldset">
                   <div class="forms_field">
-                    <input type="email" placeholder="Email" class="forms_field-input" required autofocus />
+                    <input name="Email" placeholder="Email" class="forms_field-input" required autofocus />
                   </div>
                   <div class="forms_field">
-                    <input type="password" placeholder="Password" class="forms_field-input" required />
+                    <input name="password" placeholder="Password" class="forms_field-input" required />
                   </div>
                 </fieldset>
                 <div class="forms_buttons">
@@ -42,16 +42,19 @@
             </div>
             <div class="user_forms-signup">
               <h2 class="forms_title">Sign Up</h2>
-              <form class="forms_form">
+              <form class="forms_form" action="/register" method="POST">
                 <fieldset class="forms_fieldset">
                   <div class="forms_field">
-                    <input type="text" placeholder="Full Name" class="forms_field-input" required />
+                    <input  name="fullName" placeholder="Full Name" class="forms_field-input"  />
                   </div>
                   <div class="forms_field">
-                    <input type="email" placeholder="Email" class="forms_field-input" required />
+                    <input  name="Email" placeholder="Full Name" class="forms_field-input"  />
                   </div>
                   <div class="forms_field">
-                    <input type="password" placeholder="Password" class="forms_field-input" required />
+                    <input  name="mobileNumber" placeholder="Email" class="forms_field-input"  />
+                  </div>
+                  <div class="forms_field">
+                    <input  name="password" placeholder="Password" class="forms_field-input" />
                   </div>
                 </fieldset>
                 <div class="forms_buttons">
