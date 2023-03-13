@@ -6,10 +6,10 @@ const isLoggedIn = function (req, res, next) {
     'mynameispulkitupadhyayfromharda',
     (err, authData) => {
       if (err) {
-        res.send('You are not logged in please log in first ');
+        res.send('You please login first are not logged in please log in first ');
       } else {
         //   res.sendStatus(403);
-        next();
+        next(); 
         // res.clearCookie('Token');
       }
     }
