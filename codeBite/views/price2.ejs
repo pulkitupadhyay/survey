@@ -31,14 +31,14 @@
          <div id="left">
            
              <div id="bigbox">
-                 <img src="/upload/<%= product.image %>" alt="not photo" />  
+                 <img id = "bbImg" src="/upload/<%= product.image1 %>" alt="not photo" />  
             </div>
              </div>
             
              <% for(var i = 0; i < 4; i++) {%>
              
              <div id="sml<%=i+1%>" class="imgbox">
-                  <img src="/upload/<%= displayItems[i].image%>" alt="">
+                  <img  src="/upload/<%= displayItems[i].image1%>" alt="">
                </div>
              <% } %>
 
@@ -74,7 +74,7 @@
                 <% for(var i = 0; i < displayItems.length; i++) {%>
              
                   <div id="i<%=i+1%>" onclick="javascript:window.location.href='/price/<%= displayItems[i]._id %>'" class="imgbox">
-                       <img src="/upload/<%= displayItems[i].image%>" alt="">
+                       <img   src="/upload/<%= displayItems[i].image1%>" alt="">
                 <p><%= displayItems[i].title %></p>
                    
                      </div>

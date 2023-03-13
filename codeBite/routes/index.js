@@ -90,11 +90,12 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
   try {
     var arrimages = [];
     for (let i = 0; i < req.files.length; i++) {
-      arrimages[i] = req.files[0].filename;
+      arrimages[i] = req.files[i].filename;
     }
   } catch (error) {
     console.log(error);
   }
+  console.log(req.files);
   //  console.log(req.body);
   /* 
   let productTitle = req.body.title;
@@ -107,7 +108,10 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
     description: req.body.description,
     price: req.body.price,
     catagory: req.body.catagory,
-    image: req.files[0].filename,
+    image1: req.files[0].filename,
+    image2: req.files[1].filename,
+    image3: req.files[2].filename,
+    image4: req.files[3].filename,
     // image: arrimages,
   });
 
