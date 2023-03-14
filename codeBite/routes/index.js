@@ -20,7 +20,7 @@ router.get('/', async function (req, res, next) {
   // getting all products in the category of carpets
   var carpets = await product.find({ catagory: 'carpets' });
   var bags = await product.find({ catagory: 'bags' });
-  console.log(carpets);
+  // console.log(carpets);
 
   res.render('index', { carpets: carpets, bags: bags });
 });
@@ -37,7 +37,7 @@ router.get('/login', (req, res, next) => {
 });
 
 router.post('/register', (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   let userName = req.body.fullName;
   let useremail = req.body.Email;
   let userMobile = req.body.mobileNumber;
@@ -51,7 +51,7 @@ router.post('/register', (req, res, next) => {
   });
 
   user.save().then((doc) => {
-    console.log(doc);
+    // console.log(doc);
 
     const token = jwt.sign(
       { id: user.__id },
@@ -95,7 +95,7 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
   } catch (error) {
     console.log(error);
   }
-  console.log(req.files);
+  // console.log(req.files);
   //  console.log(req.body);
   /* 
   let productTitle = req.body.title;
@@ -123,6 +123,9 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
     // res.render('index');
   });
 });
+router.get('/addnewpro', function (req, res, next) {
+  res.render('addnewpro');
+});
 
 router.post('/login', async (req, res, next) => {
   const { Email, password } = req.body;
@@ -134,7 +137,7 @@ router.post('/login', async (req, res, next) => {
   // cheaking if the email exist in database
 
   const User = await register.findOne({ Email });
-  console.log(User.Password);
+  // console.log(User.Password);
   //  const correct = await User.correctPassword(password,User.password )
 
   if (!User || !(await User.correctPassword(password, User.Password))) {
@@ -196,21 +199,21 @@ router.get('/register', function (req, res, next) {
 router.get('/submit', function (req, res, next) {
   res.render('submit');
 });
-router.get('/addnewpro', function(req, res, next) {
-  // res.render('addnewpro');
-  jwt.verify(
-    req.cookies.Token,
-    'mynameispulkitupadhyayfromharda',
-    (err, authData) => {
-      if (err) {
-        res.sendStatus(403);
-      } else {
-        res.clearCookie('Token');
-        res.send('you are now logged out please login again');
-      }
-    }
-  );
-});
 
+// router.get('/addnewpro', function(req, res, next) {
+//   // res.render('addnewpro');
+//   jwt.verify(
+//     req.cookies.Token,
+//     'mynameispulkitupadhyayfromharda',
+//     (err, authData) => {
+//       if (err) {
+//         res.sendStatus(403);
+//       } else {
+//         res.clearCookie('Token');
+//         res.send('you are now logged out please login again');
+//       }
+//     }
+//   );
+// });
 
 module.exports = router;

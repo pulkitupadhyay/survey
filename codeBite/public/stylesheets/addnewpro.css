@@ -1,257 +1,240 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  html,body{
-    height: 100%;
-    width: 100%;
-  }
-  #main{
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    background-color: #000;
-  }
-  #card{
-    display: flex;
-    height: 80%;
-    width: 35%;
-    position: absolute;
-    border-radius: 5px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background:#1e1e1e94;
-    backdrop-filter: blur(3px);
-  }
-
-  h2{
-    font-size: 1.5em;
-    color: #fff;
-    text-shadow: 10px 8px 6px #000000c1;
-  }
-
-  h3{
-    color: #919090;
-  }
-
-
-
-input{
-    border-radius: 0 !important;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+#main {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+#card {
+  display: flex;
+  height: 80%;
+  width: 35%;
+  position: absolute;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e1e1e94;
+  backdrop-filter: blur(3px);
 }
 
-  form {
-    height: 50px;
-    width: 150px;
-    color: transparent;
-  }
-  #hi{
-    position: absolute;
-    top: 77%;
-    left: 37%;
-    height: 30px;
-    width: 150px;
-    border: none;
-    /* background:linear-gradient(to right,rgb(254, 254, 122),rgb(255, 190, 71)); */
-  }
-  .fom{
-    padding: 10px 30px ;
-    margin-top: 5px;
-    border: none;
-    border-radius: 10px;
-    /* background:linear-gradient(to right,rgb(254, 254, 122),rgb(255, 190, 71)); */
-    height: 30px;
-    width: 230px;
-  }
-  #left {
-    height: 100%;
-    /* background-color: black; */
-    width: 50%;
-  }
-  
-  .hu{
-    position: absolute;
-    top: 50%; 
-  
-  }
-  
-  .hu::-webkit-file-upload-button{
-    /* background-color: bisque; */
-    border-radius: 5px;
-    border: none;
-    height: 29px;
-    width: 46%;
-    
-    
-  }
-  #onee{
-    position: absolute;
-    top: 23%;
-    left: 36%;
-  }
-  #two{
-    position: absolute;
-    top: 32%;
-    left: 36%;  
-  }
-  #three{
-    position: absolute;
-    top: 41%;
-    left: 36%;
-  }
-  #four{
-    position: absolute;
-    top: 50%;
-    left: 36%;
-  }
-  #file{
-    position: absolute;
-    top: 64%;
-    left: 45%;
-    
-    
-  }
-  #title{
-    position: absolute;
-    top: 50%;
-  }
-  #N{
-    position: absolute;
-    top: 24%;
-    left: 18%;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
-  }
-  #E{
-    position: absolute;
-    top: 33%;
-    left: 18%;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
-  }
-  #Num{
-    position: absolute;
-    top: 42%;
-    left: 14%;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
-  }
-  #A{
-    position: absolute;
-    top: 51%;
-    left: 14%;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
-  }
-  #F{
-    position: absolute;
-    top: 64%;
-    left: 17%;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
-  }
-  #B{
-    position: absolute;
-    top: 6%;
-    left: 30%;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* font-size: large; */
-  }
-  @media(max-width:800px){
-  
-  
-    #main{
-     width: 100%;
-     height: 100%;
-    }
-   
-    #card{
-     position: absolute;
-       top: 36%;
-       left: 50%;
-       transform: translate(-50%,-50%);
-     
-       width: 30vh;
-       height: 50vh;
-    }
-   
-    #card .fom{
-     position: absolute;
-        left: 15vh;
-         width: 13vh;
-         height: 3vh;
-    }
-   
-    #card h3{
-     position: absolute;
-        left: 3vh;
-        font-size:2vh;
-        
-    }
-    #hi{
-     position: absolute;
-     left: 6vh;
-     
-    }
-     
-    #card h2{
-     position: absolute;
-        left: 4vh;
-        font-size:2.5vh;
-        
-    }
-   
-   }
-  
-  @media(max-width:500px){
-  
-  
-   #main{
+h2 {
+  font-size: 1.5em;
+  color: #fff;
+  text-shadow: 10px 8px 6px #000000c1;
+}
+
+h3 {
+  color: #919090;
+}
+
+input {
+  border-radius: 0 !important;
+}
+
+form {
+  height: 50px;
+  width: 150px;
+  color: transparent;
+}
+#hi {
+  position: absolute;
+  top: 77%;
+  left: 37%;
+  height: 30px;
+  width: 150px;
+  border: none;
+  /* background:linear-gradient(to right,rgb(254, 254, 122),rgb(255, 190, 71)); */
+}
+.fom {
+  padding: 10px 30px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 10px;
+  /* background:linear-gradient(to right,rgb(254, 254, 122),rgb(255, 190, 71)); */
+  height: 30px;
+  width: 230px;
+}
+#left {
+  height: 100%;
+  /* background-color: black; */
+  width: 50%;
+}
+
+.hu {
+  position: absolute;
+  top: 50%;
+}
+
+.hu::-webkit-file-upload-button {
+  /* background-color: bisque; */
+  border-radius: 5px;
+  border: none;
+  height: 29px;
+  width: 46%;
+}
+#onee {
+  position: absolute;
+  top: 23%;
+  left: 36%;
+}
+#two {
+  position: absolute;
+  top: 32%;
+  left: 36%;
+}
+#three {
+  position: absolute;
+  top: 41%;
+  left: 36%;
+}
+#four {
+  position: absolute;
+  top: 50%;
+  left: 36%;
+}
+#file {
+  position: absolute;
+  top: 64%;
+  left: 45%;
+}
+#title {
+  position: absolute;
+  top: 50%;
+}
+#N {
+  position: absolute;
+  top: 24%;
+  left: 18%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+}
+#E {
+  position: absolute;
+  top: 33%;
+  left: 18%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+}
+#Num {
+  position: absolute;
+  top: 42%;
+  left: 14%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+}
+#A {
+  position: absolute;
+  top: 51%;
+  left: 14%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+}
+#F {
+  position: absolute;
+  top: 64%;
+  left: 17%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+}
+#B {
+  position: absolute;
+  top: 6%;
+  left: 30%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-size: large; */
+}
+@media (max-width: 800px) {
+  #main {
     width: 100%;
     height: 100%;
-   }
-  
-   #card{
+  }
+
+  #card {
     position: absolute;
-      top: 36%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-    
-      width: 30vh;
-      height: 50vh;
-   }
-  
-   #card .fom{
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 30vh;
+    height: 50vh;
+  }
+
+  #card .fom {
     position: absolute;
-       left: 15vh;
-        width: 13vh;
-        height: 3vh;
-   }
-  
-   #card h3{
+    left: 15vh;
+    width: 13vh;
+    height: 3vh;
+  }
+
+  #card h3 {
     position: absolute;
-       left: 3vh;
-       font-size:2vh;
-       
-   }
-   #hi{
+    left: 3vh;
+    font-size: 2vh;
+  }
+  #hi {
     position: absolute;
     left: 6vh;
-    
-   }
-    
-   #card h2{
-    position: absolute;
-       left: 4vh;
-       font-size:2.5vh;
-       
-   }
-     #hu{
-      position: absolute;
-      left: 30% ;
-      width: 2vh;
-      height: 1.5vh;
-     }
   }
+
+  #card h2 {
+    position: absolute;
+    left: 4vh;
+    font-size: 2.5vh;
+  }
+}
+
+@media (max-width: 500px) {
+  #main {
+    width: 100%;
+    height: 100%;
+  }
+
+  #card {
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 30vh;
+    height: 50vh;
+  }
+
+  #card .fom {
+    position: absolute;
+    left: 15vh;
+    width: 13vh;
+    height: 3vh;
+  }
+
+  #card h3 {
+    position: absolute;
+    left: 3vh;
+    font-size: 2vh;
+  }
+  #hi {
+    position: absolute;
+    left: 6vh;
+  }
+
+  #card h2 {
+    position: absolute;
+    left: 4vh;
+    font-size: 2.5vh;
+  }
+  #hu {
+    position: absolute;
+    left: 30%;
+    width: 2vh;
+    height: 1.5vh;
+  }
+}

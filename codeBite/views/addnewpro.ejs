@@ -15,22 +15,25 @@
  
   <div id="card">
     <div id="left">
-       
+      <form action="/newProduct" name="myForm" method="post" enctype="multipart/form-data">  
       <h2 id="B">BECOME A SELLER</h2>
-      <h3 id="N">Name:-</h3>
-      <h3 id="E">Email:-</h3>
-      <h3 id="Num">Number:-</h3>
-      <h3 id="A" >Address:-</h3>
-      <h3 id="F" >Upload:-</h3>
+      <h3 id="N"  name="title">Title:-</h3>
+      <h3 id="E" name="description">Description:-</h3>
+      <h3 id="Num" name="price">price:-</h3>
+      <h3 id="A" name="cataogry">catagory:-</h3>
+      <h3 id="F" >images:-</h3>
 
       
 
-      <form action="/submit" name="myForm" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
-        <input id="file" type="file" class="hu" name="upload">
-        <input id="onee"type="name" class="fom" name="name" >
-        <input id="two"type="email" class="fom" name="email" >
-        <input id="three"type="number" class="fom" name="number">
-        <input id="four"type="address" class="fom" name="address" >
+    
+        <input id="onee" class="fom" name="title" >
+        <input id="two" class="fom" name="description" >
+        <input id="three" class="fom" name="price">
+        <input id="four" class="fom" name="catagory" >
+        <input style="margin-top: 2rem;" type="file" class="hu" name="testimage">
+        <input  type="file" class="hu" style="margin-top: 10rem;" name="testimage">
+        <input  type="file" class="hu" style="margin-top: 15rem;" name="testimage">
+        <input  type="file" class="hu" style="margin-top: 17rem;" name="testimage">
         
        
       
