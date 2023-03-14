@@ -196,5 +196,21 @@ router.get('/register', function (req, res, next) {
 router.get('/submit', function (req, res, next) {
   res.render('submit');
 });
+router.get('/addnewpro', function(req, res, next) {
+  // res.render('addnewpro');
+  jwt.verify(
+    req.cookies.Token,
+    'mynameispulkitupadhyayfromharda',
+    (err, authData) => {
+      if (err) {
+        res.sendStatus(403);
+      } else {
+        res.clearCookie('Token');
+        res.send('you are now logged out please login again');
+      }
+    }
+  );
+});
+
 
 module.exports = router;
