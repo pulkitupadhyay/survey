@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian_rigs</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="product.ejs">
+</head>
+<body>
+    <div id="main">
+        <div id="left">
+            <div id="sidebox">
+                <div id="sbox1" class="sbox"></div>
+                <div id="sbox2" class="sbox"></div>
+                <div id="sbox3" class="sbox"></div>
+                <div id="sbox4" class="sbox"></div>
+            </div>
+            <div id="mainbox">
+                <div id="boxdesign">
+                    <img src="https://images.unsplash.com/photo-1678846912726-667eda5a850f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="">
+                </div>
+                <div id="cart-design">
+                    <div id="left-cart">
+                        <h1>Buy Now</h1>
+                    </div>
+                    <div id="right-cart">
+                        <h1>Add to cart</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="main-details">
+                <h2>100$ (Inculsive of all taxes)</h2>
+                <div id="price-box">
+                    <h2>this is the indian_rugs best for the house bottom, you can change in 50 to 60 years period</h2>
+
+                    <h1>$5000</h1>
+
+                    <div id="rating">
+                        <div id="rating-left">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <h5>300 rating, 150 Reviews</h5>
+                    </div>
+
+                    <h3>Free Delivery</h3>
+                </div>
+                <div id="otharized">
+                    <h2><i class="ri-refresh-line"></i> 
+                    -Original Brand</h2>
+                    <h2><i class="ri-refresh-line"></i> -Authorised Seller</h2>
+                </div>
+                <div id="size">
+                    <div id="s1" class="sizebox">   <h4> ready to Ship  <br> 4x6 ft <br> 120x180 cm </h4></div>
+                    <div id="s2" class="sizebox"> <h4>  ready to ship   <p>4x6 ft  <br>   120x180 cm  </h4> </div>
+                    <div id="s3" class="sizebox">  <h4> Made to order   <br> 5x8 ft <br>  120x180 cm   </h4> </div>
+                </div>
+                <div id="product-details">
+                    <h1>Product details</h1>
+                    <h4>Name : Mamaearth Ubtan Face Wash with Turmeric & Saffron for Tan Removal – 100ml
+
+                        Product Name : Mamaearth Ubtan Face Wash with Turmeric & Saffron for Tan Removal – 100ml
+                        
+                        Brand Name : Mamaearth
+                        
+                        Brand : Mamaearth
+                        
+                        Capacity : 100ml
+                        
+                        Flavour : No Flavour
+                        
+                        Net Quantity (N) : 1
+                        
+                        Skin Type : All Skin Types
+                        
+                        Type : Cream</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var leftcart = document.querySelector("#left-cart");
+        leftcart.addEventListener("mousemove", function(){
+            gsap.to("#left-cart",{
+                backgroundColor:"black",
+                duration:1,
+                ease: Expo.InOut
+            })
+            gsap.to("#left-cart>h1",{
+                color:"white",
+                duration:1,
+                ease:Expo.InOut
+            })
+        })
+        leftcart.addEventListener("mouseleave", function(){
+            gsap.to("#left-cart",{
+                backgroundColor:"white",
+                duration:1,
+                ease: Expo.InOut
+            })
+            gsap.to("#left-cart>h1",{
+                color:"black",
+                duration:1,
+                ease:Expo.InOut
+            })
+        })
+
+        var rightcart = document.querySelector("#right-cart");
+        rightcart.addEventListener("mousemove", function(){
+            gsap.to("#right-cart",{
+                backgroundColor: "green",
+                duration:1,
+                ease: Expo.InOut
+            })
+            gsap.to("#right-cart>h1",{
+                color:"white",
+                duration:1,
+                ease:Expo.InOut
+            })
+        })
+        rightcart.addEventListener("mouseleave", function(){
+            gsap.to("#right-cart",{
+                backgroundColor:"white",
+                duration:1,
+                ease: Expo.InOut
+            })
+            gsap.to("#right-cart>h1",{
+                color:"black",
+                duration:1,
+                ease:Expo.InOut
+            })
+        }) 
+    </script>
+</body>
+</html>

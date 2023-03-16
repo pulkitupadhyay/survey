@@ -268,7 +268,7 @@ video {
   top: 1%;
   width: 200%;
   animation-name: scroller;
-  animation-duration: 30s;
+  animation-duration: 120s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
 }
