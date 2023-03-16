@@ -6,20 +6,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indian_rigs</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="product.ejs">
+    <!-- <link rel="stylesheet" href="product.ejs"> -->
+  <!-- <link rel="stylesheet" href="./stylesheets/addnewpro.css"> -->
+  <!-- <link rel="stylesheet" href="./stylesheets/product.css"> -->
+<style>
+    @font-face {
+    font-family: am;
+    /* src: url(America.ttf); */
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+#main{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+}
+#left{
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+    background-color: blueviolet;
+}
+
+#right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+
+#left #sidebox{
+    border: 1px solid black;
+    padding: 3vw 0vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 1.5vw;
+    align-items: end;
+    width: 20%;
+    height: 100vh;
+    background-color: #fff;
+}
+#left #mainbox{
+    padding: 3vw 0vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+#sidebox .sbox{
+    width: 80%;
+    height: 15vh;
+    background-color:brown;
+}
+
+
+#mainbox #boxdesign{
+    width: 80%;
+    height: 80%;
+    border: 2px solid black;
+}
+#boxdesign img{
+    width: 100%;
+    height: 100%;
+}
+#mainbox #cart-design{
+    display: flex;
+    width: 90%;
+    height: 10%;
+    background-color: chocolate;
+}
+#cart-design #left-cart{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    
+    background-color: rgb(255, 255, 255);
+}
+#cart-design #right-cart{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(185, 185, 196);
+}
+#cart-design h1{
+    cursor: pointer;
+   color: black;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#right #main-details{
+    padding-left: 1vw;
+    width: 90%;
+    height: 95%;
+    border: 1px solid rgba(188, 176, 176, 0.176);
+}
+#main-details>h2{
+    font-family: am;
+    font-weight: 100;
+}
+#main-details #price-box{
+    margin-top: 2vw;
+    width: 90%;
+    height: 30vh;
+    border: .5px solid rgba(196, 188, 188, 0.283);
+}
+#price-box>h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3vw;
+    color: rgba(0, 0, 0, 0.6);
+}
+#price-box>h1{
+    margin-top: 1vw;
+    font-family: am;
+}
+#price-box #rating{
+    margin-top: 1vw;
+    gap: 2vw;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    /* background-color: chartreuse; */
+}
+#rating #rating-left{
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+    height: 100%;
+    background-color: rgb(18, 165, 77);
+}
+#rating-left i{
+    color: white;
+}
+#rating>h5{
+    font-family: am;
+    color: rgba(0, 0, 0, 0.457);
+}
+#price-box>h3{
+    margin-top: 1vw;
+    font-family: am;
+}
+#main-details #otharized{
+    font-family: am;
+    margin-top: 2vw;
+    padding: 0vw 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    /* background-color: chocolate; */
+}
+#otharized>h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#otharized i{
+    color: blue;
+    animation: otharized 3s infinite linear;
+}
+@keyframes otharized {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#main-details #size{
+    margin-top: 2vw;
+    padding: 0vw 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 15vh;
+    background-color: rgb(255, 255, 255);
+}
+#size .sizebox{
+    font-family: am;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    height: 13vh;
+    /* background-color: rgb(255, 34, 0); */
+    border: 1px solid black;
+}
+#main-details #product-details{
+
+    width: 100%;
+    height: 23vh;
+}
+#product-details>h1{
+    font-family: am;
+}
+#product-details>h4{
+    color: rgba(0, 0, 0, 0.614);
+    margin-top: 1vw;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#sidebox img{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+</style>
 </head>
 <body>
     <div id="main">
         <div id="left">
             <div id="sidebox">
-                <div id="sbox1" class="sbox"></div>
+
+                <% for(var i = 1; i <= 4; i++) {%>
+             
+                    <div id="sbox<%=i%>" class="sbox">  
+                        <% if(i==1){%>
+                            <img src="/upload/<%= product.image1 %>">
+                      <% }else if(i==2){%>
+                        <img src="/upload/<%= product.image2 %>">
+                     
+                     
+                        <% }else if(i==3){%>
+                        
+                            <img src="/upload/<%= product.image3 %>">
+
+                            <% }else if(i==4){%>
+
+                                <img src="/upload/<%= product.image4 %>">
+    
+                                <% }%>
+                    </div>
+                    <% } %>
+
+                <!-- <div id="sbox1" class="sbox"></div>
                 <div id="sbox2" class="sbox"></div>
                 <div id="sbox3" class="sbox"></div>
-                <div id="sbox4" class="sbox"></div>
+                <div id="sbox4" class="sbox"></div> -->
             </div>
             <div id="mainbox">
                 <div id="boxdesign">
-                    <img src="https://images.unsplash.com/photo-1678846912726-667eda5a850f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="">
+                    <img id = "bbImg" src="/upload/<%= product.image1 %>" alt="not photo" />
                 </div>
                 <div id="cart-design">
                     <div id="left-cart">
@@ -33,11 +283,11 @@
         </div>
         <div id="right">
             <div id="main-details">
-                <h2>100$ (Inculsive of all taxes)</h2>
+                <h2>100$ </h2>
                 <div id="price-box">
-                    <h2>this is the indian_rugs best for the house bottom, you can change in 50 to 60 years period</h2>
+                    <h2><%= product.title%></h2>
 
-                    <h1>$5000</h1>
+                    <h1>$<%= product.price%> (Inculsive of all taxes)</h1>
 
                     <div id="rating">
                         <div id="rating-left">
@@ -63,23 +313,12 @@
                 </div>
                 <div id="product-details">
                     <h1>Product details</h1>
-                    <h4>Name : Mamaearth Ubtan Face Wash with Turmeric & Saffron for Tan Removal – 100ml
+                    <h4>Name : <%= product.title%>
 
-                        Product Name : Mamaearth Ubtan Face Wash with Turmeric & Saffron for Tan Removal – 100ml
-                        
-                        Brand Name : Mamaearth
-                        
-                        Brand : Mamaearth
-                        
-                        Capacity : 100ml
-                        
-                        Flavour : No Flavour
-                        
-                        Net Quantity (N) : 1
-                        
-                        Skin Type : All Skin Types
-                        
-                        Type : Cream</h4>
+                        Product Name : <%= product.title%>
+                        <br>
+                        <%= product.description%>
+                    </h4>
                 </div>
             </div>
         </div>

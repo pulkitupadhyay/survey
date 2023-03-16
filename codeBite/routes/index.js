@@ -189,7 +189,8 @@ router.get(`/price/:id`, async (req, res, next) => {
 
   var displayItems = await product.find({ catagory: nproduct.catagory });
   console.log(nproduct);
-  res.render('price2', { product: nproduct, displayItems: displayItems });
+  res.render('product', { product: nproduct, displayItems: displayItems });
+  // res.render('product');
 });
 
 router.get('/register', function (req, res, next) {
