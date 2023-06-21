@@ -49,17 +49,18 @@ body::-webkit-scrollbar {
   width: 100%;
   height: 100%;
 }
-#logbtn {
-  position: absolute;
-  top: 5vh;
-  right: 7vh;
-  border: 1px solid black;
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  border: 1px solid rgb(255, 255, 255);
   width: 18vh;
   height: 4vh;
-  background-color: #473636;
-  color: rgb(249, 249, 249);
+  /* background-color: #ffffff; */
+  color: rgb(255, 255, 255);
   border-radius: 20px;
-  z-index: 99;
+  /* z-index: 99; */
 }
 
 .overlay1 {
@@ -70,23 +71,83 @@ body::-webkit-scrollbar {
   left: 0;
   width: 100%;
   height: 100%;
-  text-shadow: 10px 8px 6px #000000c1;
+  /* text-shadow: 10px 8px 6px #000000c1; */
   z-index: 99;
   color: #fff;
   background-color: #00000097;
-  font: 900 2rem sans-serif;
+  /* font: 900 2rem sans-serif; */
   text-align: center;
   animation-name: fade-in;
   animation-duration: 7s;
 }
 
+.overlay1 .nav{
+  padding-right: 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15vh;
+  background-color: rgba(236, 236, 236, 0);
+}
+.nav .nav-link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+  height: 40%;
+  /* background-color: blue; */
+}
+
+.nav-link .nav-link-i{
+  width: 3vw;
+  height: 3;
+}
+.nav-link-i>i{
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+.nav-link-i>p{
+  width: 100%;
+  font-size: .6rem;
+}
+
 .overlay1-nav {
+  z-index: 999999999;
   margin: 10px;
   width: 10%;
-  height: 12%;
+  height: 100%;
   background-image: url(../images/rugs.png);
   background-size: cover;
 }
+.nav .nav-search{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2vw;
+  width: 30%;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0);
+}
+.nav-search #first-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+}
+#first-form{
+  font-size: 1.5rem;
+}
+#first-form input{
+  border: 1px solid rgb(255, 255, 255);
+  color: white;
+  width: 90%;
+  height: 100%;
+  background-color: transparent;
+}
+
 
 @keyframes fade-in {
   from {
@@ -137,8 +198,6 @@ video {
   display: flex;
   width: 100%;
   height: 60%;
-  /* position: relative; */
-  /* top: 60%; */
 }
 
 .left {
@@ -193,18 +252,53 @@ video {
   background-image: url(../images/div2.jpg);
   background-size: cover;
 }
-
+/* ----------This is the code of cantainer------------------------ */
 #container {
-  position: relative;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  display: flex;
+  gap: 4vw;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
-  height: 130%;
-  transition: 0.01s ease-out;
-  background-color: rgb(201, 202, 202);
-  /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/concrete-wall-background.jpg);
-  background-size: cover; */
+  background-color: rgb(255, 255, 255);
 }
-
-.nav-container {
+.box-c{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh 1vw;
+  position: relative;
+  margin-top: 3vh;
+  width: 20vw;
+  height: 60vh;
+  /* background-color: rgb(228, 221, 221); */
+}
+.box-c .img-box{
+  text-align: center;
+  width: 100%;
+  height: 90%;
+}
+.img-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+}
+.box-c h3{
+  font-size: 1rem;
+  font-weight: 400;
+}
+.box-c h5{
+  font-weight: 400;
+}
+.box-c h2{
+  font-size: 1rem;
+  font-weight: 400;
+}
+/* .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -260,7 +354,6 @@ video {
 .swiper {
   width: 98%;
   height: 170%;
-  /* overflow-x: hidden; */
 }
 
 .swiper-wrapper {
@@ -339,24 +432,18 @@ img {
   box-shadow: 18px 18px 18px -18px black;
   transition: 0.6s;
   transform: rotatex(60deg) translatey(-200px) translatez(-100px);
-  /* box-shadow: 0px 20px 60px rgba(0,0,0, 0.5); */
-  /* transform: rotatex(10deg); */
-  /* transform: rotatez(50deg); */
 }
 
 .swiper-slide img:hover {
   position: absolute;
-  /* transform: translateZ(10px); */
   transform: rotatex(0deg);
   transform: rotatez(0deg);
   transition: ease-in-out 0.6s;
-  /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); */
   cursor: pointer;
 }
 
 .swiper-slide:hover {
   background-color: transparent;
-  /* height: 460px; */
 }
 
 .swiper-slide img {
@@ -444,7 +531,9 @@ span {
   width: 20%;
   height: 100%;
   color: rgb(7, 7, 7);
-}
+} */
+
+/* footer css code here ---------------------------------------------- */
 
 .footer-div {
   position: relative;
