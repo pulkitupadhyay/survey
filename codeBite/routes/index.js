@@ -24,6 +24,19 @@ router.get('/', async function (req, res, next) {
 
   res.render('index', { carpets: carpets, bags: bags });
 });
+router.get('/loggedIndex', isLoggedIn, async function (req, res, next) {
+  // getting all products in the category of carpets
+  var carpets = await product.find({ catagory: 'carpets' });
+  var bags = await product.find({ catagory: 'bags' });
+  var user = await register.find();
+  console.log(user);
+
+  res.render('indexForLoggedInUser', {
+    carpets: carpets,
+    bags: bags,
+    user: user,
+  });
+});
 
 // this is to inform that changes has been done
 
@@ -61,7 +74,7 @@ router.post('/register', (req, res, next) => {
       }
     );
     res.cookie('Token', token, { httpOnly: true, maxAge: 1.728e8 });
-    res.render('index');
+    res.redirect('/');
   });
 });
 
@@ -153,7 +166,7 @@ router.post('/login', async (req, res, next) => {
     }
   );
   res.cookie('Token', token, { httpOnly: true, maxAge: 1.728e8 });
-  res.render('index');
+  res.redirect('/');
 });
 
 router.post('/logout', (req, res, next) => {

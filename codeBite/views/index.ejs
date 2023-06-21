@@ -68,7 +68,7 @@
        
         <!-- <button id="logbtn2" style="position:fixed; "><a href="/logout" method="post" style="text-decoration: none" target="_blank"> Logout</a> </button> -->
       
-          <a href="/addnewpro"><button class="btn btn-outline-danger"  type="submit" >addnewpro</button></a>
+          <!-- <a href="/addnewpro"><button class="btn btn-outline-danger"  type="submit" >addnewpro</button></a> -->
        
 
       </div>
@@ -95,6 +95,19 @@
           <h3><%= carpets[i].catagory %></h3>
           <h5><%= carpets[i].title %></h5>
           <h2>Rs - <%= carpets[i].price %></h2>
+        </div>
+      <% } %>
+      <% for(var i = 0; i < bags.length;i++){%>
+        <!-- <div onclick="window.open('/price/')" class="box-c"> -->
+
+          <div id="1" onclick="javascript:window.location.href='/price/<%= bags[i]._id %>'"class="box-c">
+
+          <div class="img-box">
+          <img src="/upload/<%= bags[i].image1 %>" alt="" />
+          </div>
+          <h3><%= bags[i].catagory %></h3>
+          <h5><%= bags[i].title %></h5>
+          <h2>Rs - <%= bags[i].price %></h2>
         </div>
       <% } %>
       

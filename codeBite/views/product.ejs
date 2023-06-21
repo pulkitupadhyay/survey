@@ -8,15 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="product.ejs"> -->
   <!-- <link rel="stylesheet" href="./stylesheets/addnewpro.css"> -->
-  <link rel="stylesheet" href="/stylesheets/product.css">
-
- <!-- <style>
+  <!-- <link rel="stylesheet" href="./stylesheets/product.css"> -->
+<style>
     @font-face {
     font-family: am;
-    src: url("/public/samarkan/Gilroy-Medium.ttf");
+    /* src: url(America.ttf); */
 }
 *{
-    margin: 0%; 
+    margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 }
@@ -47,7 +46,7 @@ html,body{
 }
 
 #left #sidebox{
-    /* border: 1px solid black; */
+    border: 1px solid black;
     padding: 3vw 0vw;
     display: flex;
     flex-direction: column;
@@ -78,7 +77,7 @@ html,body{
 #mainbox #boxdesign{
     width: 80%;
     height: 80%;
-    /* border: 2px solid black; */
+    border: 2px solid black;
 }
 #boxdesign img{
     width: 100%;
@@ -86,34 +85,31 @@ html,body{
 }
 #mainbox #cart-design{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 90%;
     height: 10%;
-    /* background-color: chocolate; */
+    background-color: chocolate;
 }
 #cart-design #left-cart{
-    /* border: 2px solid black; */
+    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45%;
-    height: 70%;
+    width: 50%;
+    height: 100%;
     
-    background-color: rgb(216, 210, 210);
+    background-color: rgb(255, 255, 255);
 }
 #cart-design #right-cart{
-    /* border: 2px solid black; */
+    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45%;
-    height: 70%;
+    width: 50%;
+    height: 100%;
     background-color: rgb(185, 185, 196);
 }
 #cart-design h1{
     cursor: pointer;
-    font-size: 1.5rem;
    color: black;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -122,7 +118,7 @@ html,body{
     padding-left: 1vw;
     width: 90%;
     height: 95%;
-    /* border: 1px solid rgba(188, 176, 176, 0.176); */
+    border: 1px solid rgba(188, 176, 176, 0.176);
 }
 #main-details>h2{
     font-family: am;
@@ -132,7 +128,7 @@ html,body{
     margin-top: 2vw;
     width: 90%;
     height: 30vh;
-    /* border: .5px solid rgba(196, 188, 188, 0.283); */
+    border: .5px solid rgba(196, 188, 188, 0.283);
 }
 #price-box>h2{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -238,7 +234,7 @@ html,body{
     width: 100%;
     position: relative;
 }
-</style>  -->
+</style>
 </head>
 <body>
     <div id="main">
@@ -343,7 +339,7 @@ html,body{
             })
         })
         leftcart.addEventListener("mouseleave", function(){
-            gsap.to("#left-cart",{
+            agsap.to("#left-cart",{
                 backgroundColor:"white",
                 duration:1,
                 ease: Expo.InOut
