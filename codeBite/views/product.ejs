@@ -116,7 +116,9 @@
     data-locale = "auto"></script>
 
     <input type="number" name="price" value="<%= product.price %>" style="visibility:hidden;">
- 
+    <input type="string" name="product_id" value="<%= product._id %>" style="visibility:hidden;">
+    <input type="string" name="user_id" value="<%= user[0].Email %>" style="visibility:hidden;">
+    
 
 </form>
 

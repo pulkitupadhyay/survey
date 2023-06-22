@@ -21,9 +21,29 @@ const registerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  city: {
+    type: String,
+  },
+  country: {
+    type: String,
+  },
+  line1: {
+    type: String,
+  },
+  line2: {
+    type: String,
+  },
+  postal_code: {
+    type: String,
+  },
+  state: {
+    type: String,
+  },
 });
 
 registerSchema.pre('save', async function (next) {
+  const address = (await city) + country + line1 + line2 + state + postal_code;
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(this.Password, salt);
   this.Password = hashedPassword;

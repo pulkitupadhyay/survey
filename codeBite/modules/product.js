@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const productSchema = new mongoose.Schema({
+  seller_id: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,

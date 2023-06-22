@@ -7,11 +7,8 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  transection_id: {
-    type: String,
-    required: true,
-  },
-  vendor_id: {
+
+  seller_id: {
     type: String,
     required: true,
   },
