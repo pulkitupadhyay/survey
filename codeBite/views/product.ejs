@@ -19,21 +19,25 @@
                 <% for(var i = 1; i <= 4; i++) {%>
              
                     <div id="sbox<%=i%>" class="sbox">  
+
                         <% if(i==1){%>
-                            <img src="/upload/<%= product.image1 %>">
-                      <% }else if(i==2){%>
-                        <img src="/upload/<%= product.image2 %>">
-                     
+
+                            <img  src="/upload/<%= product.image1 %>">
+
+                        <% }else if(i==2){%>
+
+                           <img  src="/upload/<%= product.image2 %>">
                      
                         <% }else if(i==3){%>
                         
                             <img src="/upload/<%= product.image3 %>">
 
-                            <% }else if(i==4){%>
+                        <% }else if(i==4){%>
 
-                                <img src="/upload/<%= product.image4 %>">
+                            <img src="/upload/<%= product.image4 %>">
     
-                                <% }%>
+                        <% }%>
+
                     </div>
                     <% } %>
 
@@ -151,6 +155,41 @@
                 ease:Expo.InOut
             })
         }) 
+
+
+        function product(){
+            var img1 = document.querySelector("#sbox1");
+            var img2 = document.querySelector("#sbox2");
+            var img3 = document.querySelector("#sbox3");
+            var img4 = document.querySelector("#sbox4");
+            
+            var main_img = document.querySelector("#boxdesign #bbImg")
+            img1.addEventListener("click", function(){
+                console.log("hello");
+                main_img.src = "/upload/<%= product.image1 %>"
+            })
+
+            img2.addEventListener("click", function(){
+                console.log("hello");
+                main_img.src = "/upload/<%= product.image2 %>"
+            })
+
+            img3.addEventListener("click", function(){
+                console.log("hello");
+                main_img.src = "/upload/<%= product.image3 %>"
+            })
+
+            img4.addEventListener("click", function(){
+                console.log("hello");
+                main_img.src = "/upload/<%= product.image4 %>"
+            })
+
+            main.img.addEventListener("mousemove", function(){
+                console.log("kello");
+            })
+        }
+        product();
+
     </script>
 </body>
 </html>
