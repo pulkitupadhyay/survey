@@ -48,7 +48,7 @@ form {
 }
 #hi {
   position: absolute;
-  top: 77%;
+  top: 92%;
   left: 37%;
   height: 30px;
   width: 150px;
@@ -73,6 +73,7 @@ form {
 .hu {
   position: absolute;
   top: 50%;
+  left: 50%;
 }
 
 .hu::-webkit-file-upload-button {
@@ -85,22 +86,22 @@ form {
 #onee {
   position: absolute;
   top: 23%;
-  left: 36%;
+  left: 50%;
 }
 #two {
   position: absolute;
   top: 32%;
-  left: 36%;
+  left: 50%;
 }
 #three {
   position: absolute;
   top: 41%;
-  left: 36%;
+  left: 50%;
 }
 #four {
   position: absolute;
   top: 50%;
-  left: 36%;
+  left: 50%;
 }
 #file {
   position: absolute;
@@ -113,38 +114,53 @@ form {
 }
 #N {
   position: absolute;
-  top: 24%;
-  left: 18%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  top: 25%;
+  left: 20%;
+  font-family: "Gilroy";
   font-size: large;
 }
 #E {
   position: absolute;
   top: 33%;
-  left: 18%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  left: 20%;
+  font-family: "Gilroy";
   font-size: large;
 }
 #Num {
   position: absolute;
   top: 42%;
-  left: 14%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  left: 20%;
+  font-family: "Gilroy";
   font-size: large;
 }
 #A {
   position: absolute;
-  top: 51%;
-  left: 14%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  top: 52%;
+  left: 20%;
+  font-family: "Gilroy";
   font-size: large;
 }
 #F {
   position: absolute;
-  top: 64%;
-  left: 17%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  top: 59%;
+  left: 20%;
+  font-family: Gilroy;
   font-size: large;
+}
+#F1{
+  position: absolute;
+  top: 66%;
+  left: 25%;
+}
+#F2{
+  position: absolute;
+  top: 74%;
+  left: 25%;
+}
+#F3{
+  position: absolute;
+  top: 82%;
+  left: 25%;
 }
 #B {
   position: absolute;
@@ -224,6 +240,7 @@ form {
   #hi {
     position: absolute;
     left: 6vh;
+    bottom: 1vh;
   }
 
   #card h2 {
