@@ -165,30 +165,49 @@
             
             var main_img = document.querySelector("#boxdesign #bbImg")
             img1.addEventListener("click", function(){
-                console.log("hello");
                 main_img.src = "/upload/<%= product.image1 %>"
             })
 
             img2.addEventListener("click", function(){
-                console.log("hello");
                 main_img.src = "/upload/<%= product.image2 %>"
             })
 
             img3.addEventListener("click", function(){
-                console.log("hello");
                 main_img.src = "/upload/<%= product.image3 %>"
             })
 
             img4.addEventListener("click", function(){
-                console.log("hello");
                 main_img.src = "/upload/<%= product.image4 %>"
             })
 
-            main.img.addEventListener("mousemove", function(){
+            main_img.addEventListener("mousemove", function(){
                 console.log("kello");
             })
         }
         product();
+
+        function zoom(){
+            var boxdesign = document.querySelector("#boxdesign");
+            var bbImg = document.querySelector("#bbImg");
+            boxdesign.addEventListener("mousemove", function(event){
+                clientX = event.clientX - boxdesign.offsetleft
+                clientY = event.clientY - boxdesign.offsetTop
+
+                mWidth = boxdesign.offsetWidth
+                mHeight = boxdesign.offsetHeight
+
+                clientX = clientX/mWidth * 100
+                clientY = clientY/mHeight * 100
+
+                bbImg.style.transform = 'translate(-'+clientX+'%,-'+clientY+'%) scale(2)'
+                // bbImg.style.transform = 'translate(-50%, -50%) scale(2)'
+            });
+
+            boxdesign.addEventListener("mouseleave", function(){
+                bbImg.style.transform = 'tranlate(-50%, -50%) scale(1)'
+            });
+        }
+        zoom();
 
     </script>
 </body>
