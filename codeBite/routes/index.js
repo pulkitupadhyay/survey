@@ -11,6 +11,13 @@ const path = require('path');
 const mongoose = require('mongoose');
 // const { ObjectId } = require('mongodb');
 const ObjectId = require('mongodb');
+const PUBLISHABLE_KEY =
+  'pk_test_51JBzFESAprUbcjS1IVUHcVBGh24zbCTH8HK2NhXeRLEzRhUKP6FiuH61n5PcorRItdXQVpJM5NCuEXkYsZZir2ol00nRBIzQe1';
+const SECRET_KEY =
+  'sk_test_51JBzFESAprUbcjS1at26Z56lRs0XajJ4DwJKStXGIF95jCDEiOaUaYPGicwThsXyQYxgsEZ1wfBoyRJRU8vH1BwW00ROd7GquN';
+
+const stripe = require('stripe')(SECRET_KEY);
+
 // const __dirname = path.resolve();
 router.use('./../public', express.static(path.join(__dirname, './../public')));
 
@@ -24,6 +31,43 @@ router.get('/', async function (req, res, next) {
 
   res.render('index', { carpets: carpets, bags: bags });
 });
+
+// payment interation here
+router.post('/price/payment', (req, res) => {
+  console.log('reqbb');
+  console.log(req.body);
+  stripe.customers
+    .create({
+      email: req.body.stripeEmail,
+      source: req.body.stripeToken,
+      name: 'gotm sharma',
+      address: {
+        line1: '23 bhopal',
+        postal_code: '110092',
+        city: 'bhopal',
+        state: 'mp',
+        country: 'India',
+      },
+    })
+    .then((customer) => {
+      return stripe.charges.create({
+        amount: 7000,
+        description: 'indianrugs',
+        currency: 'inr',
+        customer: customer.id,
+      });
+    })
+    .then((charge) => {
+      console.log(charge);
+      res.send('sucess');
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
+router.get('/payment-getway');
+
 router.get('/loggedIndex', isLoggedIn, async function (req, res, next) {
   // getting all products in the category of carpets
   var carpets = await product.find({ catagory: 'carpets' });
@@ -202,10 +246,17 @@ router.get(`/price/:id`, async (req, res, next) => {
   console.log(req.params.id);
 
   const nproduct = await product.findById(req.params.id);
+  var email = req.cookies.user_email;
+  var user = await register.find({ Email: email });
 
   var displayItems = await product.find({ catagory: nproduct.catagory });
   console.log(nproduct);
-  res.render('product', { product: nproduct, displayItems: displayItems });
+  res.render('product', {
+    product: nproduct,
+    displayItems: displayItems,
+    key: PUBLISHABLE_KEY,
+    user: user,
+  });
   // res.render('product');
 });
 
