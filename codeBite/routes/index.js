@@ -35,7 +35,7 @@ router.get('/', async function (req, res, next) {
 // payment interation here
 router.post('/price/payment', (req, res) => {
   console.log('reqbb');
-  console.log(req.body);
+  console.log(req.body.price);
   stripe.customers
     .create({
       email: req.body.stripeEmail,
@@ -51,7 +51,7 @@ router.post('/price/payment', (req, res) => {
     })
     .then((customer) => {
       return stripe.charges.create({
-        amount: 7000,
+        amount: req.body.price*100,
         description: 'indianrugs',
         currency: 'inr',
         customer: customer.id,

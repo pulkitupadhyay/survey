@@ -102,20 +102,20 @@
             </div>
         </div>
     </div>
-
+<!-- isko sirf aage peechhe sarka sakte ho iske elements ko change mat karna ye hi vo button hai -->
 <form action="payment" method="POST">
 
-    <input type="number" value="<%= product.price %>">
     <script
     src = "//checkout.stripe.com/v2/checkout.js"
     class = "stripe-button"
     data-key = "<%= key %>"
-    data-amount= "<%= product.price %>"
+    data-amount= "<%= product.price*100 %>"
     data-currency = "inr"
-    data-name = "<%= user.Name %>"
+    data-name = "pulkit"
     data-description = "buy <%= product.title%>"
     data-locale = "auto"></script>
 
+    <input type="number" name="price" value="<%= product.price %>" style="visibility:hidden;">
  
 
 </form>
