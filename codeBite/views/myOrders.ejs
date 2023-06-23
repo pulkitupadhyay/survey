@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Orders</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .order-photo {
+      max-width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Orders</h1>
+
+    <table>
+      <thead>
+        <tr>
+            <th>sr.</th>  
+          <th>Order ID</th>
+          <th>Product</th>
+          <th>product Id</th>
+          <th>Price</th>
+          
+          <th>user name</th>
+          <th>Seller name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i = 0; i < orders.length; i++) { %>
+          
+          
+            <tr>
+               <td><%= i+1 %></td> 
+              <td><%= orders[i]._id %></td>
+              <td><%= products[i].title %></td>
+              <td><%= products[i]._id %></td>
+              <td><%= products[i].price %></td>
+              <td><%= customers.Name %></td>
+              <td><%= sellers[i].Name %></td>
+              <td> <form action="/deletorder" method="post">
+                <input type="text" name="order_id" value= "<%= orders[i]._id %>" style="visibility:hidden;">
+                <button type="submit">cansle order</button></form></td>
+             
+            </tr>
+          <% } %>
+      
+        
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

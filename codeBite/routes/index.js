@@ -74,11 +74,13 @@ router.post('/price/payment', (req, res) => {
         console.log(product1);
 
         let product_id = product1[0]._id;
+        let productName = product1[0].title;
         let seller_id = product1[0].seller_id;
         let customer_id = user[0]._id;
 
         const NForder = new order({
           product_id: product_id,
+          productName: productName,
           seller_id: seller_id,
           customer_id: customer_id,
         });
@@ -317,4 +319,46 @@ router.get('/submit', function (req, res, next) {
 //   );
 // });
 
+// ab jo bhi banega is ke niche banega
+
+router.get('/myOrders', isLoggedIn, async (req, res, next) => {
+  console.log(req.cookies);
+  var email = req.cookies.user_email;
+
+  var user = await register.findOne({ Email: email });
+
+  // console.log(user);
+  var orders = await order.find({ customer_id: user._id });
+
+  // const products = await product.find({ _id: or});
+
+  let products = [];
+  let sellers = [];
+
+  for (var i = 0; i < orders.length; i++) {
+    var productObj = await product.findOne({ _id: orders[i].product_id });
+    var sellersObj = await register.findOne({ _id: productObj.seller_id });
+    products.push(productObj);
+    sellers.push(sellersObj);
+  }
+  // console.log(products);
+
+  var allUsers = register.find({});
+  res.render('myOrders', {
+    products: products,
+    orders: orders,
+    // allUsers: allUsers,
+    customers: user,
+    sellers: sellers,
+  });
+});
+
+router.post('/deletorder', async (req, res, next) => {
+  console.log(req.body);
+  let orderId = req.body.order_id;
+  console.log(orderId);
+  await order.deleteOne({ _id: orderId });
+
+  res.redirect('/myOrders');
+});
 module.exports = router;
