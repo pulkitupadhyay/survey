@@ -6,8 +6,11 @@ const app = require('./../app');
 const register = require('../modules/registerScheema');
 const jwt = require('jsonwebtoken');
 const isLoggedIn = require('./../modules/isloggedIn');
+// const user = require('./../modules/registerScheema');
 const product = require('./../modules/product');
+const order = require('./../modules/orderdProductScheema');
 const path = require('path');
+
 const mongoose = require('mongoose');
 // const { ObjectId } = require('mongodb');
 const ObjectId = require('mongodb');
@@ -35,38 +38,64 @@ router.get('/', async function (req, res, next) {
 // payment interation here
 router.post('/price/payment', (req, res) => {
   console.log('reqbb');
-  console.log(req.body);
+  console.log(req.body.price);
   stripe.customers
     .create({
       email: req.body.stripeEmail,
       source: req.body.stripeToken,
       name: 'gotm sharma',
+
       address: {
-        line1: '23 bhopal',
-        postal_code: '110092',
         city: 'bhopal',
-        state: 'mp',
-        country: 'India',
+        country: 'india',
+        line1: 'bhopaldkfj',
+        line2: 'badfadsf',
+        postal_code: 'asdfasdf',
+        state: 'asdfasdf',
       },
     })
     .then((customer) => {
       return stripe.charges.create({
-        amount: 7000,
+        amount: req.body.price * 100,
         description: 'indianrugs',
         currency: 'inr',
         customer: customer.id,
       });
     })
-    .then((charge) => {
-      console.log(charge);
+    .then(async (charge) => {
+      console.log('saving product in order section');
+      // console.log(charge);
+
+      try {
+        const product1 = await product.find({ _id: req.body.product_id });
+
+        const user = await register.find({ Email: req.body.user_id });
+        console.log(user);
+        console.log(product1);
+
+        let product_id = product1[0]._id;
+        let seller_id = product1[0].seller_id;
+        let customer_id = user[0]._id;
+
+        const NForder = new order({
+          product_id: product_id,
+          seller_id: seller_id,
+          customer_id: customer_id,
+        });
+        NForder.save().then((doc) => {
+          // console.log(doc);
+          console.log('order saved11111111111111111111');
+        });
+      } catch (error) {
+        console.log(error);
+      }
+
       res.send('sucess');
     })
     .catch((err) => {
       res.send(err);
     });
 });
-
-router.get('/payment-getway');
 
 router.get('/loggedIndex', isLoggedIn, async function (req, res, next) {
   // getting all products in the category of carpets
@@ -163,6 +192,7 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
   let productCatagory = req.body.catagory;
  */
   const prod = new product({
+    seller_id: req.body.seller_id,
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
@@ -182,8 +212,11 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
     // res.render('index');
   });
 });
-router.get('/addnewpro', function (req, res, next) {
-  res.render('addnewpro');
+router.get('/addnewpro', isLoggedIn, async function (req, res, next) {
+  // cosole.log(req.cookies);
+  var email = req.cookies.user_email;
+  var user = await register.find({ Email: email });
+  res.render('addnewpro', { user: user });
 });
 
 router.post('/login', async (req, res, next) => {
