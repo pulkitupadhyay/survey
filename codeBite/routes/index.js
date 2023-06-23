@@ -1,19 +1,22 @@
-// import { ObjectId } from 'bson';
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-const app = require('./../app');
 const register = require('../modules/registerScheema');
 const jwt = require('jsonwebtoken');
 const isLoggedIn = require('./../modules/isloggedIn');
-// const user = require('./../modules/registerScheema');
 const product = require('./../modules/product');
 const order = require('./../modules/orderdProductScheema');
 const path = require('path');
-
 const mongoose = require('mongoose');
-// const { ObjectId } = require('mongodb');
 const ObjectId = require('mongodb');
+const app = require('./../app');
+
+// const { ObjectId } = require('mongodb');
+// const user = require('./../modules/registerScheema');
+// import { ObjectId } from 'bson';
+
+// ,,,,,,,,,,111111111111111111<<<<<Keys>>>>>>>>>>>>>11!1!!!!!!!!!!!,,,,,,,,,,,,,,
+
 const PUBLISHABLE_KEY =
   'pk_test_51JBzFESAprUbcjS1IVUHcVBGh24zbCTH8HK2NhXeRLEzRhUKP6FiuH61n5PcorRItdXQVpJM5NCuEXkYsZZir2ol00nRBIzQe1';
 const SECRET_KEY =
@@ -21,21 +24,25 @@ const SECRET_KEY =
 
 const stripe = require('stripe')(SECRET_KEY);
 
-// const __dirname = path.resolve();
+// <<<<<<<<<<<<<<<<<<<    the middlevares    >>>>>>>>>>>>>>>
 router.use('./../public', express.static(path.join(__dirname, './../public')));
-
 // const upload = require('./../modules/imageMulter');
-/* GET home page. */
+// const __dirname = path.resolve();
+
+// /****************** */ GET routs ******************************/
 router.get('/', async function (req, res, next) {
   // getting all products in the category of carpets
   var carpets = await product.find({ catagory: 'carpets' });
   var bags = await product.find({ catagory: 'bags' });
-  // console.log(carpets);
 
-  res.render('index', { carpets: carpets, bags: bags });
+  if (!isLoggedIn) {
+    res.render('index', { carpets: carpets, bags: bags });
+  } else if (isLoggedIn) {
+    res.redirect('/loggedIndex');
+  }
 });
 
-// payment interation here
+// *********************payment interation here************
 router.post('/price/payment', (req, res) => {
   console.log('reqbb');
   console.log(req.body.price);
@@ -64,7 +71,6 @@ router.post('/price/payment', (req, res) => {
     })
     .then(async (charge) => {
       console.log('saving product in order section');
-      // console.log(charge);
 
       try {
         const product1 = await product.find({ _id: req.body.product_id });
@@ -85,19 +91,20 @@ router.post('/price/payment', (req, res) => {
           customer_id: customer_id,
         });
         NForder.save().then((doc) => {
-          // console.log(doc);
           console.log('order saved11111111111111111111');
         });
       } catch (error) {
         console.log(error);
       }
-
-      res.send('sucess');
+      console.log('payment succesfull');
+      res.redirect('..');
     })
     .catch((err) => {
       res.send(err);
     });
 });
+
+// ********* this is the index for logged in users only ****************
 
 router.get('/loggedIndex', isLoggedIn, async function (req, res, next) {
   // getting all products in the category of carpets
@@ -105,8 +112,6 @@ router.get('/loggedIndex', isLoggedIn, async function (req, res, next) {
   var bags = await product.find({ catagory: 'bags' });
   var email = req.cookies.user_email;
   var user = await register.find({ Email: email });
-  console.log(req.cookies);
-  console.log(user[0].Name);
 
   res.render('indexForLoggedInUser', {
     carpets: carpets,
@@ -115,19 +120,16 @@ router.get('/loggedIndex', isLoggedIn, async function (req, res, next) {
   });
 });
 
-// this is to inform that changes has been done
-
 router.get('/menu', function (req, res, next) {
   res.render('menu');
 });
 
-// this is the login route
+// ***************************this is the login route
 router.get('/login', (req, res, next) => {
   res.render('login');
 });
 
 router.post('/register', (req, res, next) => {
-  // console.log(req.body);
   let userName = req.body.fullName;
   let useremail = req.body.Email;
   let userMobile = req.body.mobileNumber;
@@ -141,8 +143,6 @@ router.post('/register', (req, res, next) => {
   });
 
   user.save().then((doc) => {
-    // console.log(doc);
-
     const token = jwt.sign(
       { id: user.__id },
       'mynameispulkitupadhyayfromharda',
@@ -185,14 +185,7 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
   } catch (error) {
     console.log(error);
   }
-  // console.log(req.files);
-  //  console.log(req.body);
-  /* 
-  let productTitle = req.body.title;
-  let productDescription = req.body.description;
-  let productPrice = req.body.price;
-  let productCatagory = req.body.catagory;
- */
+
   const prod = new product({
     seller_id: req.body.seller_id,
     title: req.body.title,
@@ -203,7 +196,6 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
     image2: req.files[1].filename,
     image3: req.files[2].filename,
     image4: req.files[3].filename,
-    // image: arrimages,
   });
 
   prod.save().then((doc) => {
@@ -214,8 +206,10 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
     // res.render('index');
   });
 });
+
+// ********************add new products *******************
+
 router.get('/addnewpro', isLoggedIn, async function (req, res, next) {
-  // cosole.log(req.cookies);
   var email = req.cookies.user_email;
   var user = await register.find({ Email: email });
   res.render('addnewpro', { user: user });
@@ -231,8 +225,6 @@ router.post('/login', async (req, res, next) => {
   // cheaking if the email exist in database
 
   const User = await register.findOne({ Email });
-  // console.log(User.Password);
-  //  const correct = await User.correctPassword(password,User.password )
 
   if (!User || !(await User.correctPassword(password, User.Password))) {
     return next('enter the correcr cridentals');
@@ -251,7 +243,7 @@ router.post('/login', async (req, res, next) => {
   res.redirect('/loggedIndex');
 });
 
-router.post('/logout', (req, res, next) => {
+router.post('/logout', isLoggedIn, (req, res, next) => {
   jwt.verify(
     req.cookies.Token,
     'mynameispulkitupadhyayfromharda',
@@ -264,19 +256,9 @@ router.post('/logout', (req, res, next) => {
       }
     }
   );
-
-  // console.log(req.headers.cookie);
 });
 
-// router.get('/signUp', (req, res, next) => {
-//   res.render('signUp');
-// });
-// router.get('/price/1', function (req, res, next) {
-//   var id = req.params.id;
-//   console.log(req.params);
-//   res.render('price', { id });
-// });
-
+// *****************getting perticuler product***************************
 router.get(`/price/:id`, async (req, res, next) => {
   console.log(req.params.id);
 
@@ -292,7 +274,6 @@ router.get(`/price/:id`, async (req, res, next) => {
     key: PUBLISHABLE_KEY,
     user: user,
   });
-  // res.render('product');
 });
 
 router.get('/register', function (req, res, next) {
@@ -303,26 +284,10 @@ router.get('/submit', function (req, res, next) {
   res.render('submit');
 });
 
-// router.get('/addnewpro', function(req, res, next) {
-//   // res.render('addnewpro');
-//   jwt.verify(
-//     req.cookies.Token,
-//     'mynameispulkitupadhyayfromharda',
-//     (err, authData) => {
-//       if (err) {
-//         res.sendStatus(403);
-//       } else {
-//         res.clearCookie('Token');
-//         res.send('you are now logged out please login again');
-//       }
-//     }
-//   );
-// });
-
 // ab jo bhi banega is ke niche banega
 
 router.get('/myOrders', isLoggedIn, async (req, res, next) => {
-  console.log(req.cookies);
+  // console.log(req.cookies);
   var email = req.cookies.user_email;
 
   var user = await register.findOne({ Email: email });
@@ -347,7 +312,6 @@ router.get('/myOrders', isLoggedIn, async (req, res, next) => {
   res.render('myOrders', {
     products: products,
     orders: orders,
-    // allUsers: allUsers,
     customers: user,
     sellers: sellers,
   });
