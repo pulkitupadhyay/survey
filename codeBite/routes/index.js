@@ -34,16 +34,16 @@ router.get('/', async function (req, res, next) {
   // getting all products in the category of carpets
   var carpets = await product.find({ catagory: 'carpets' });
   var bags = await product.find({ catagory: 'bags' });
-
-  if (!isLoggedIn) {
+  var token = req.cookies.Token;
+  if (!token) {
     res.render('index', { carpets: carpets, bags: bags });
-  } else if (isLoggedIn) {
+  } else if (token) {
     res.redirect('/loggedIndex');
   }
 });
 
 // *********************payment interation here************
-router.post('/price/payment', (req, res) => {
+router.post('/price/payment', isLoggedIn, (req, res) => {
   console.log('reqbb');
   console.log(req.body.price);
   stripe.customers
@@ -252,7 +252,7 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
         res.sendStatus(403);
       } else {
         res.clearCookie('Token');
-        res.send('you are now logged out please login again');
+        res.redirect('/');
       }
     }
   );
