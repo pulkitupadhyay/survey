@@ -329,4 +329,9 @@ router.post('/deletorder', async (req, res, next) => {
 
   res.redirect('/myOrders');
 });
+
+router.get('/myAccount', async (req, res, next) => {
+  res.render('myAccount');
+});
+
 module.exports = router;
