@@ -35,9 +35,10 @@ router.get('/', async function (req, res, next) {
   var carpets = await product.find({ catagory: 'carpets' });
   var bags = await product.find({ catagory: 'bags' });
   var token = req.cookies.Token;
+  var email = req.cookies.user_email;
   if (!token) {
     res.render('index', { carpets: carpets, bags: bags });
-  } else if (token) {
+  } else if (token && email) {
     res.redirect('/loggedIndex');
   }
 });
@@ -244,7 +245,10 @@ router.post('/login', async (req, res, next) => {
   );
   res.cookie('Token', token, { httpOnly: true, maxAge: 1.728e8 });
   res.cookie('user_email', User.Email);
-  res.redirect('/loggedIndex');
+
+  var prevPage = req.originalUrl;
+
+  res.redirect(`/`);
 });
 
 router.post('/logout', isLoggedIn, (req, res, next) => {
@@ -256,6 +260,7 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
         res.sendStatus(403);
       } else {
         res.clearCookie('Token');
+        res.clearCookie('user_email');
         res.redirect('/');
       }
     }
@@ -312,7 +317,7 @@ router.get('/myOrders', isLoggedIn, async (req, res, next) => {
   }
   // console.log(products);
 
-  var allUsers = register.find({});
+  // var allUsers = register.find({});
   res.render('myOrders', {
     products: products,
     orders: orders,
@@ -332,6 +337,10 @@ router.post('/deletorder', async (req, res, next) => {
 
 router.get('/myAccount', async (req, res, next) => {
   res.render('myAccount');
+});
+
+router.get('/test', async (req, res, next) => {
+  res.render('testMyAc');
 });
 
 module.exports = router;

@@ -52,7 +52,20 @@
                 </div>
                 <div id="cart-design">
                     <div id="left-cart">
-                        <h1>Buy Now</h1>
+                       
+             <!-- <script>const pathP = window.location.pathname</script>            -->
+<% if(!user[0]){%>
+    <h1><a href="/login" style="text-decoration: none; color:black;"> Buy Now</a></h1>
+    
+    <%}%>
+    <% if(user[0]){%>
+        <h1>Buy Now</h1>
+
+        <%}%>
+
+
+
+                    
                     </div>
                     <div id="right-cart">
                         <h1>Add to cart</h1>
@@ -102,13 +115,15 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 
     <!-------------------------------------------- pulkit added this line----------------------------------------- -->
-=======
-<!-- isko sirf aage peechhe sarka sakte ho iske elements ko change mat karna ye hi vo button hai -->
->>>>>>> e6383f3cd36bce3c71a6b48a401586ca5bfb0572
 
+<!-- isko sirf aage peechhe sarka sakte ho iske elements ko change mat karna ye hi vo button hai -->
+
+<% if(!user[0]){%>
+    <%console.log('nothing');%>
+    <%}%>
+    <% if(user[0]){%>
 
 <form action="payment" method="POST">
 
@@ -124,21 +139,24 @@
 
     <input type="number" name="price" value="<%= product.price %>" style="visibility:hidden;">
     <input type="string" name="product_id" value="<%= product._id %>" style="visibility:hidden;">
+ 
     <input type="string" name="user_id" value="<%= user[0].Email %>" style="visibility:hidden;">
     
 
 </form>
+        <%}%>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         var leftcart = document.querySelector("#left-cart");
-        leftcart.addEventListener("mousemove", function(){
+        leftcart.addEventListener("mouseover", function(){
             gsap.to("#left-cart",{
                 backgroundColor:"black",
                 duration:1,
                 ease: Expo.InOut
             })
-            gsap.to("#left-cart>h1",{
+            gsap.to("#left-cart>h1>a",{
                 color:"white",
                 duration:1,
                 ease:Expo.InOut
