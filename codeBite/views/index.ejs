@@ -11,7 +11,43 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./stylesheets/style.css" />
 </head>
+<style>
+  .nav-link-i p {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+  /* border: 1px solid #ccc;
+  border-radius: 5px; */
+  /* background-color: #f8f8f8; */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+}
 
+.nav-link-i p:hover {
+  background-color: #eaeaea;
+  color:black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nav-link-i p.animated {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
+
+</style>
 <body>
   <div class="body">
     <div id="loader"></div>
@@ -42,16 +78,16 @@
             </div>
             <div class="nav-link-i">
               <i class="ri-account-circle-line"></i>
-              <p>Account</p>
-            </div>
-            <div class="nav-link-i">
-              <i class="ri-account-circle-line"></i>
-              <p>Wishlist</p>
+              <p>set profile</p>
             </div>
             <div class="nav-link-i">
               <i class="ri-shopping-cart-2-line"></i>
-              <p>Cart</p>
+              <p>Vew Producuts</p>
             </div>
+            <!-- <div class="nav-link-i">
+              <i class="ri-shopping-cart-2-line"></i>
+              <p>Cart</p>
+            </div> -->
             
           </div>
 

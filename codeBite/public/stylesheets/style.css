@@ -63,7 +63,7 @@ body::-webkit-scrollbar {
   border-radius: 20px;
   /* z-index: 99; */
 }
-.login-btn>a{
+.login-btn > a {
   text-decoration: none;
   color: white;
 }
@@ -86,7 +86,7 @@ body::-webkit-scrollbar {
   animation-duration: 7s;
 }
 
-.overlay1 .nav{
+.overlay1 .nav {
   padding-right: 2vw;
   display: flex;
   justify-content: space-between;
@@ -95,7 +95,7 @@ body::-webkit-scrollbar {
   height: 15vh;
   background-color: rgba(236, 236, 236, 0);
 }
-.nav .nav-link{
+.nav .nav-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -104,17 +104,17 @@ body::-webkit-scrollbar {
   /* background-color: blue; */
 }
 
-.nav-link .nav-link-i{
-  width: 3vw;
+.nav-link .nav-link-i {
+  width: 7vw;
   height: 3;
 }
-.nav-link-i>i{
+.nav-link-i > i {
   font-size: 1.5rem;
   font-weight: 100;
 }
-.nav-link-i>p{
+.nav-link-i > p {
   width: 100%;
-  font-size: .6rem;
+  font-size: 0.6rem;
 }
 
 .overlay1-nav {
@@ -125,7 +125,7 @@ body::-webkit-scrollbar {
   background-image: url(../images/rugs.png);
   background-size: cover;
 }
-.nav .nav-search{
+.nav .nav-search {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -134,7 +134,7 @@ body::-webkit-scrollbar {
   height: 30%;
   background-color: rgba(255, 255, 255, 0);
 }
-.nav-search #first-form{
+.nav-search #first-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,17 +142,16 @@ body::-webkit-scrollbar {
   height: 100%;
   /* background-color: red; */
 }
-#first-form{
+#first-form {
   font-size: 1.5rem;
 }
-#first-form input{
+#first-form input {
   border: 1px solid rgb(255, 255, 255);
   color: white;
   width: 90%;
   height: 100%;
   background-color: transparent;
 }
-
 
 @keyframes fade-in {
   from {
@@ -269,7 +268,7 @@ video {
   width: 100%;
   background-color: rgb(255, 255, 255);
 }
-.box-c{
+.box-c {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -281,25 +280,25 @@ video {
   height: 60vh;
   /* background-color: rgb(228, 221, 221); */
 }
-.box-c .img-box{
+.box-c .img-box {
   text-align: center;
   width: 100%;
   height: 90%;
 }
-.img-box img{
+.img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   background-size: cover;
 }
-.box-c h3{
+.box-c h3 {
   font-size: 1rem;
   font-weight: 400;
 }
-.box-c h5{
+.box-c h5 {
   font-weight: 400;
 }
-.box-c h2{
+.box-c h2 {
   font-size: 1rem;
   font-weight: 400;
 }

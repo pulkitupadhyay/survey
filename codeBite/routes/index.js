@@ -335,12 +335,92 @@ router.post('/deletorder', async (req, res, next) => {
   res.redirect('/myOrders');
 });
 
-router.get('/myAccount', async (req, res, next) => {
-  res.render('myAccount');
+router.get('/myAccount', isLoggedIn, async (req, res, next) => {
+  var email = req.cookies.user_email;
+  var user = await register.findOne({ Email: email });
+
+  res.render('myAccount', { user });
 });
 
 router.get('/test', async (req, res, next) => {
   res.render('testMyAc');
+});
+
+router.post('/editProfile', async (req, res, next) => {
+  const prevuser = await register.findOne({ Email: req.cookies.user_email });
+
+  let name, email, contact, country, city, state, postal_code, line1;
+
+  if (req.body.name == '') {
+    name = prevuser.Name;
+  } else {
+    name = req.body.name;
+  }
+
+  if (req.body.email == '') {
+    email = prevuser.Email;
+  } else {
+    email = req.body.email;
+  }
+  if (req.body.contact == '') {
+    contact = prevuser.number;
+  } else {
+    contact = req.body.contact;
+  }
+
+  if (req.body.country == '') {
+    country = prevuser.country;
+  } else {
+    country = req.body.country;
+  }
+
+  if (req.body.city == '') {
+    city = prevuser.city;
+  } else {
+    city = req.body.city;
+  }
+
+  if (req.body.state == '') {
+    state = prevuser.state;
+  } else {
+    state = req.body.state;
+  }
+
+  if (req.body.line1 == '') {
+    line1 = prevuser.line1;
+  } else {
+    line1 = req.body.line1;
+  }
+
+  if (req.body.postal_code == '') {
+    postal_code = prevuser.postal_code;
+  } else {
+    postal_code = req.body.postal_code;
+  }
+
+  // console.log(req.cookies);
+
+  try {
+    await register.findOneAndUpdate(
+      { Email: req.cookies.user_email },
+      {
+        $set: {
+          Name: name,
+          Email: email,
+          number: contact,
+          city: city,
+          country: country,
+          postal_code: postal_code,
+          line1: line1,
+          state: state,
+        },
+      },
+      { new: true }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect('/myAccount');
 });
 
 module.exports = router;
