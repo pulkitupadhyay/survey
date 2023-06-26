@@ -9,7 +9,221 @@
     <!-- <link rel="stylesheet" href="product.ejs"> -->
   <!-- <link rel="stylesheet" href="./stylesheets/addnewpro.css"> -->
   <link rel="stylesheet" href="/stylesheets/product.css">
+<style>
+    .stripe-button-el {
+        visibility: hidden ;
+    }
+    /* ther products div */
+    .product-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.product {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.product img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+    /* .product h3 {
+    margin-top: 10px;
+    }
+
+    .product p {
+    margin-top: 5px;
+    } */
+
+.product button {
+  margin-top: 10px;
+}
+
+.logoutbtn {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 7px 15px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 19px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+
+    .logoutbtn:hover {
+      background-color: #e53935;
+    }
+
+    .logoutbtn:active {
+      background-color: #c62828;
+    }
+
+    /* Animation styles */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .logoutbtn h3 {
+      margin: 0;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    /* the heading */
+    .parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+}
+
+.animated-heading {
+  position: relative;
+  display: inline-block;
+  animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* styel for summery */
+#checkout-summary {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: scale(0);
+  opacity: 0;
+  animation: summary-animation 1s forwards;
+}
+
+@keyframes summary-animation {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: text-animation 1s infinite alternate;
+}
+
+@keyframes text-animation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+.prod {
+   
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-left: 22px;
+  animation: prod-animation 1s ease-in-out infinite alternate;
+}
+
+/* @keyframes prod-animation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+} */
+
+.prod h3 {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 10px;
+}
+ 
+.prod p {
+  font-size: 18px;
+  color: #999;
+  margin: 8px 0;
+}
+
+.price {
+  color: #25a80e;
+  animation: price-animation 1s infinite alternate;
+}
+
+/* @keyframes price-animation {
+  0% {
+    color: #25a80e;
+  }
+  100% {
+    color: #ff4500;
+  }
+} */
+
+.tax {
+  color: #666;
+}
+
+.delivery {
+  color: #666;
+  animation: delivery-animation 1s infinite alternate;
+}
+
+/* @keyframes delivery-animation {
+  0% {
+    color: #666;
+  }
+  100% {
+    color: #25a80e;
+  }
+} */
+
+.total {
+  font-weight: bold;
+  color: #ff4500;
+  animation: total-animation 1s infinite alternate;
+}
+
+
+
+
+</style>
 </head>
 <body>
     <div id="main">
@@ -59,7 +273,7 @@
     
     <%}%>
     <% if(user[0]){%>
-        <h1>Buy Now</h1>
+        <h1 id = "buyNow">Buy Now</h1>
 
         <%}%>
 
@@ -120,39 +334,92 @@
 
 <!-- isko sirf aage peechhe sarka sakte ho iske elements ko change mat karna ye hi vo button hai -->
 
-<% if(!user[0]){%>
-    <%console.log('nothing');%>
-    <%}%>
-    <% if(user[0]){%>
 
-<form action="payment" method="POST">
 
-    <script
-    src = "//checkout.stripe.com/v2/checkout.js"
-    class = "stripe-button"
-    data-key = "<%= key %>"
-    data-amount= "<%= product.price*100 %>"
-    data-currency = "inr"
-    data-name = "pulkit"
-    data-description = "buy <%= product.title%>"
-    data-locale = "auto"></script>
+<!-- the summery div here  -->
 
-    <input type="number" name="price" value="<%= product.price %>" style="visibility:hidden;">
-    <input type="string" name="product_id" value="<%= product._id %>" style="visibility:hidden;">
- 
-    <input type="string" name="user_id" value="<%= user[0].Email %>" style="visibility:hidden;">
-    
-
-</form>
+<div id="checkout-summary" class="summary-animation" style="visibility: hidden;">
+    <h2>Checkout Summary</h2>
+    <div class="prod">
+      <h3><%= product.name%></h3>
+      <p class="price">Price: $<%=product.price %></p>
+      <p class="tax">Tax: $2</p>
+      <p class="delivery">Delivery Charges: $5</p>
+      <p class="total">Total: $<%=product.price + 5 + 2 %></p>
+      <!-- <% if(!user[0]){%>
+        <%console.log('nothing');%>
         <%}%>
+        <% if(user[0]){%> -->
+    
+    <form action="payment" method="POST" style="border:2px solid red">
+    
+        <script
+        src = "//checkout.stripe.com/v2/checkout.js"
+        class = "stripe-button"
+        data-key = "<%= key %>"
+        data-amount= "<%= product.price*100 %>"
+        data-currency = "inr"
+        data-name = "pulkit"
+        data-description = "buy <%= product.title%>"
+        data-locale = "auto"
+        ></script>
+    
+        <input type="number" name="price" value="<%= product.price %>" style="visibility:hidden;">
+        <input type="string" name="product_id" value="<%= product._id %>" style="visibility:hidden;">
+     
+        <input type="string" name="user_id" value="<%= user[0].Email %>" style="visibility:hidden;">
+        
+    
+    </form>
+            <!-- <%}%> -->
 
+    </div>
+  </div>
+  
+
+
+
+
+<!-- div of other products starts here  -->
+
+
+
+
+
+
+
+<div class="perent-container" style="display: flex; justify-content: center; font-size: 32px;">
+
+<h2 class="animated-heading">See Our Other Collection</h2>
+</div>
+<div class="product-container">
+   
+    <% for(var i = 0; i < displayItems.length; i++) { %>
+      <div class="product">
+        <img src="/upload/<%= displayItems[i].image1 %>" alt="Product 1">
+        <h3><%= displayItems[i].title %></h3>
+        <p>$ <%= displayItems[i].price %></p>
+        <button class="logoutbtn"><h3>Add to Cart</h3></button>
+      </div>
+    <% } %>
+  
+
+</div>
+
+
+
+<!-- div of other products ends here  -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+
+// document.getElementsByClassName('stripe-button').style.visibility = "hidden";
+
         var leftcart = document.querySelector("#left-cart");
         leftcart.addEventListener("mouseover", function(){
             gsap.to("#left-cart",{
                 backgroundColor:"black",
+                
                 duration:1,
                 ease: Expo.InOut
             })
@@ -162,18 +429,18 @@
                 ease:Expo.InOut
             })
         })
-        leftcart.addEventListener("mouseleave", function(){
-            agsap.to("#left-cart",{
-                backgroundColor:"white",
-                duration:1,
-                ease: Expo.InOut
-            })
-            gsap.to("#left-cart>h1",{
-                color:"black",
-                duration:1,
-                ease:Expo.InOut
-            })
-        })
+        // leftcart.addEventListener("mouseleave", function(){
+        //     agsap.to("#left-cart",{
+        //         backgroundColor:"grey",
+        //         duration:1,
+        //         ease: Expo.InOut
+        //     })
+        //     gsap.to("#left-cart>h1",{
+        //         color:"white",
+        //         duration:1,
+        //         ease:Expo.InOut
+        //     })
+        // })
 
         var rightcart = document.querySelector("#right-cart");
         rightcart.addEventListener("mousemove", function(){
@@ -190,7 +457,7 @@
         })
         rightcart.addEventListener("mouseleave", function(){
             gsap.to("#right-cart",{
-                backgroundColor:"white",
+                backgroundColor:"grey",
                 duration:1,
                 ease: Expo.InOut
             })
@@ -253,6 +520,13 @@
             });
         }
         zoom();
+
+        // pulkit`s code 
+        var buy = document.getElementById('buyNow');
+        var sum = document.getElementById('checkout-summary');
+        buy.addEventListener('click', ()=>{
+            sum.style.visibility = "visible";
+        })
 
     </script>
 </body>

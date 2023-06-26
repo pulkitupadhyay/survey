@@ -156,6 +156,7 @@ router.post('/register', (req, res, next) => {
       }
     );
     res.cookie('Token', token, { httpOnly: true, maxAge: 1.728e8 });
+    res.cookie('user_email', user.Email);
     res.redirect('/loggedIndex');
   });
 });
@@ -207,7 +208,7 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
     console.log(doc);
     console.log(prod);
 
-    res.send('product saved in database');
+    res.redirect('/');
     // res.render('index');
   });
 });
@@ -269,13 +270,15 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
 
 // *****************getting perticuler product***************************
 router.get(`/price/:id`, async (req, res, next) => {
-  console.log(req.params.id);
+  console.log(req.params);
 
   const nproduct = await product.findById(req.params.id);
+  console.log(nproduct);
   var email = req.cookies.user_email;
   var user = await register.find({ Email: email });
 
   var displayItems = await product.find({ catagory: nproduct.catagory });
+
   console.log(nproduct);
   res.render('product', {
     product: nproduct,
