@@ -134,7 +134,7 @@
   }
 }
 
-h2 {
+.prod h2 {
   font-size: 28px;
   color: #333;
   text-align: center;
@@ -220,13 +220,66 @@ h2 {
   animation: total-animation 1s infinite alternate;
 }
 
+/* nav stylers */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  margin: 10px;
+}
+
+.navbar .logo img {
+  height: 50px;
+}
+
+.navbar .navbar-links {
+  list-style: none;
+  margin: 10px;
+  padding: 0;
+  display: flex;
+  margin-top: -24px;
+  margin-left: 49vh;
+}
+
+.navbar .navbar-links li {
+  margin-right: 20px;
+}
+
+.navbar .navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+  margin-left: 21px;
+}
+
+.navbar .navbar-links li a:hover {
+  color: #ffcc00;
+}
 
 
 
 </style>
 </head>
 <body>
-    <div id="main">
+  <nav class="navbar" style="background-color: black;">
+    <div class="logo">
+      <img src="https://www.etsy.com/in-en/market/business_logo_rug" alt="Company Logo">
+    </div>
+    <ul class="navbar-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Cart</a></li>
+      <li><a href="#">Account</a></li>
+    </ul>
+  </nav>
+  
+    <div id="main" style="margin-top: 21px;">
         <div id="left">
             <div id="sidebox">
 
@@ -287,13 +340,14 @@ h2 {
                 </div>
             </div>
         </div>
-        <div id="right">
+        <div id="right" >
             <div id="main-details">
-                <h2>100$ </h2>
+                
                 <div id="price-box">
-                    <h2><%= product.title%></h2>
-
-                    <h1>$<%= product.price%> (Inculsive of all taxes)</h1>
+                    <h1><%= product.title%> </h1>
+                    <h3 style="color:rgba(0,0,0,0.6);"><%= product.description %></h3>
+                   
+                    <h2 style="margin-top: 2vh;">$<%= product.price%> (Inculsive of all taxes)</h2>
 
                     <div id="rating">
                         <div id="rating-left">
@@ -307,7 +361,7 @@ h2 {
 
                     <h3>Free Delivery</h3>
                 </div>
-                <div id="otharized">
+                <div id="otharized" style="margin-top: 11vh;">
                     <h2><i class="ri-refresh-line"></i> 
                     -Original Brand</h2>
                     <h2><i class="ri-refresh-line"></i> -Authorised Seller</h2>
@@ -388,11 +442,11 @@ h2 {
 
 
 
-<div class="perent-container" style="display: flex; justify-content: center; font-size: 32px; margin-top: 7vh;">
+<div class="perent-container" style="display: flex; justify-content: center; font-size: 32px; margin-top: 4vh;">
 
-<h2 class="animated-heading">See Our Other Collection</h2>
+<h2 class="animated-heading" style="font-size: 5vh;">See Our Other Collection</h2>
 </div>
-<div class="product-container">
+<div class="product-container" style="margin-top: 1vh;">
    
     <% for(var i = 0; i < displayItems.length; i++) { %>
      <a href="/price/<%= displayItems[i]._id%>" style="text-decoration:none;color:rgb(31, 26, 26);"> <div class="product">
@@ -423,7 +477,7 @@ h2 {
                 duration:1,
                 ease: Expo.InOut
             })
-            gsap.to("#left-cart>h1>a",{
+            gsap.to("#left-cart>h1",{
                 color:"white",
 
                 duration:1,
@@ -431,13 +485,13 @@ h2 {
             })
         })
         leftcart.addEventListener("mouseleave", function(){
-            agsap.to("#left-cart",{
+            gsap.to("#left-cart",{
                 backgroundColor:"grey",
                 duration:1,
                 ease: Expo.InOut
             })
-            gsap.to("#left-cart>h1>a",{
-                color:"white",
+            gsap.to("#left-cart>h1",{
+                color:"black",
                 duration:1,
                 ease:Expo.InOut
             })
@@ -540,6 +594,18 @@ h2 {
   }
 
         })
+
+
+
+        // mav js 
+        window.addEventListener('scroll', function() {
+  var navbar = document.querySelector('.navbar');
+  if (window.scrollY > 0) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
 
     </script>
 </body>
