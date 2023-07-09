@@ -183,6 +183,7 @@ var upload = multer({ storage: storage });
 
 router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
   console.log(req.files);
+ 
   try {
     var arrimages = [];
     for (let i = 0; i < req.files.length; i++) {
@@ -192,6 +193,7 @@ router.post('/newProduct', upload.array('testimage'), (req, res, next) => {
     console.log(error);
   }
 
+ 
   const prod = new product({
     seller_id: req.body.seller_id,
     title: req.body.title,

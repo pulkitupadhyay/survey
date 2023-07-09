@@ -116,7 +116,8 @@ body {
        
       
   
-        <input   id="hi" type="submit">
+        <input   id="hi" type="submit">2
+        
 
       </form>
       <!-- <button id="promo-button">Click for Promotion</button> -->
@@ -134,19 +135,19 @@ body {
   </div>
   <!-- <script src="./javascripts/seller.js"></script> -->
   <script>
-  var promoButton = document.getElementById('hi');
-  var closeButton = document.getElementById('close-button');
-  var promotionContainer = document.getElementById('promotion-container');
-  
-  promoButton.addEventListener('click', function() {
-    promotionContainer.classList.toggle('hidden');
-  });
-  
-  closeButton.addEventListener('click', function() {
-    promotionContainer.classList.add('hidden');
-  });
-  
+
+    var promoButton = document.getElementById('hi');
+    var closeButton = document.getElementById('close-button');
+    var promotionContainer = document.getElementById('promotion-container');
     
-    </script>
+    promoButton.addEventListener('click', function() {
+      promotionContainer.classList.toggle('hidden');
+    });
+    
+    closeButton.addEventListener('click', function() {
+      promotionContainer.classList.add('hidden');
+    });
+  
+  </script>
 </body>
 </html>

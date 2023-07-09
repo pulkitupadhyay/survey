@@ -322,7 +322,9 @@
       </div>
       <div id="mainbox">
         <div id="boxdesign">
-          <img id="bbImg" src="/upload/<%= product.image1 %>" alt="not photo" />
+          <img id="bbImg" class="bbimg" src="/upload/<%= product.image1 %>" alt="not photo" />
+          <div class="lens"></div>
+          <div class="result"></div>
         </div>
         <div id="cart-design">
           <div id="left-cart">
@@ -492,7 +494,8 @@
 
 
 
-    var leftcart = document.querySelector("#left-cart");
+    function Button(){
+      var leftcart = document.querySelector("#left-cart");
     leftcart.addEventListener("mouseover", function () {
       gsap.to("#left-cart", {
         backgroundColor: "black",
@@ -545,7 +548,8 @@
         ease: Expo.InOut
       })
     })
-
+    }
+    Button();
 
     function product() {
       var img1 = document.querySelector("#sbox1");
@@ -554,6 +558,9 @@
       var img4 = document.querySelector("#sbox4");
 
       var main_img = document.querySelector("#boxdesign #bbImg")
+      
+     
+     
       img1.addEventListener("click", function () {
         main_img.src = "/upload/<%= product.image1 %>"
       })
@@ -569,35 +576,11 @@
       img4.addEventListener("click", function () {
         main_img.src = "/upload/<%= product.image4 %>"
       })
-
-      main_img.addEventListener("mousemove", function () {
-        console.log("kello");
-      })
+      
     }
     product();
 
-    function zoom() {
-      var boxdesign = document.querySelector("#boxdesign");
-      var bbImg = document.querySelector("#bbImg");
-      boxdesign.addEventListener("mousemove", function (event) {
-        clientX = event.clientX - boxdesign.offsetleft
-        clientY = event.clientY - boxdesign.offsetTop
-
-        mWidth = boxdesign.offsetWidth
-        mHeight = boxdesign.offsetHeight
-
-        clientX = clientX / mWidth * 100
-        clientY = clientY / mHeight * 100
-
-        bbImg.style.transform = 'translate(-' + clientX + '%,-' + clientY + '%) scale(2)'
-        // bbImg.style.transform = 'translate(-50%, -50%) scale(2)'
-      });
-
-      boxdesign.addEventListener("mouseleave", function () {
-        bbImg.style.transform = 'tranlate(-50%, -50%) scale(1)'
-      });
-    }
-    zoom();
+   
 
     // pulkit`s code 
 
@@ -629,6 +612,89 @@
         navbar.classList.remove('scrolled');
       }
     });
+
+
+    function zoom(){
+      const container = document.querySelector("#mainbox #boxdesign")
+    
+    const image = document.querySelector("#boxdesign .bbimg")
+    image.addEventListener("click", function(){
+        console.log("hello");
+      })
+    const lens = document.querySelector(".lens")
+    const result = document.querySelector(".result")
+
+    const containerRect = container.getBoundingClientRect()
+    const imageRect = image.getBoundingClientRect()
+    const lensRect = lens.getBoundingClientRect()
+    const resultRect = result.getBoundingClientRect()
+
+    lens.addEventListener("mousemove", function(){
+      gsap.to(".result",{
+        opacity:1
+        // display:"flex"
+      })
+    })
+    lens.addEventListener("mouseleave", function(){
+        gsap.to(".result",{
+        opacity:0
+        // display:"none"
+        })
+    })
+
+    container.addEventListener("mousemove", zoomImage)
+
+    result.style.backgroundImage = `url(${image.src})`
+
+    function zoomImage(e) {
+        console.log("zoom image", e.clientX, e.clientY)
+        const { x, y } = getMousePos(e)
+
+        lens.style.left = x + "px"
+        lens.style.top = y + "px"
+
+        let fx = resultRect.width / lensRect.width
+        let fy = resultRect.height / lensRect.height
+
+        result.style.backgroundSize = `${imageRect.width * fx}px ${
+            imageRect.height * fy
+        }px`
+        result.style.backgroundPosition = `-${x * fx}px -${y * fy}px`
+    }
+
+    function getMousePos(e) {
+        let x = e.clientX - containerRect.left - lensRect.width / 2
+        let y = e.clientY - containerRect.top - lensRect.height / 2
+
+        let minX = 0
+        let minY = 0
+        let maxX = containerRect.width - lensRect.width
+        let maxY = containerRect.height - lensRect.height
+
+        if (x <= minX) {
+            x = minX
+        } else if (x >= maxX) {
+            x = maxX
+        }
+        if (y <= minY) {
+            y = minY
+        } else if (y >= maxY) {
+            y = maxY
+        }
+
+        return { x, y }
+    }
+
+
+    }
+    zoom();
+
+
+
+
+
+
+
 
   </script>
 </body>
