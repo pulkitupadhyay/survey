@@ -1,4 +1,8 @@
 
+@font-face {
+  font-family: Gilroy;
+  src: url(/samarkan/Gilroy-Medium.ttf);
+}
 *{
 margin: 0;
 padding: 0;
@@ -7,6 +11,7 @@ box-sizing: border-box;
 html,body{
 width: 100%;
 height: 100%;
+font-family: Gilroy;
 }
 
 #main{
@@ -84,6 +89,7 @@ font-weight: 500;
 
 }
 #account{
+  padding-left: 2vw;
 position: relative;
  position: absolute;
  width: 100%;
@@ -91,37 +97,51 @@ position: relative;
  font-family: "Gilroy";
  border-bottom: 2px solid #dadada;
  /* background-color: aqua; */
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: start;
+ gap: 2vh;
 }
 #account>h3{
- position: absolute;
- top: 5%;
- left: 15%;
+ /* position: absolute; */
+ /* top: 5%; */
+ /* left: 15%; */
  font-family: "Gilroy";
  font-weight: 500;
 }
 
 .a{
-margin-top: 15%;
-margin-left: 15%;
-font-family: "Gilroy";
-font-weight: 500;
-}
-.b{
-/* margin-top: 8%; */
-margin-left: 38%;
-font-family: "Gilroy";
-font-weight: 500;
-}
-.c{
-margin-top: 6%;
-margin-left: 15%;
+/* margin-top: 15%; */
+/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
 
+.c{
+/* margin-top: 6%; */
+/* margin-left: 15%; */
+font-family: "Gilroy";
+font-weight: 500;
+}
+.addnewproduct{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 6vh;
+  /* background-color: #3498db; */
+}
+.addnewproduct>a{
+  padding: .3vw;
+  border: 1px solid black;
+  text-decoration: none;
+  font-size: 1.3vw;
+}
 
 #payment{
-
+padding-left: 2vw;
 position: relative;
 position: absolute;
 top: 33%;
@@ -130,12 +150,17 @@ height: 30%;
 font-family: "Gilroy";
 /* background-color: rgb(107, 42, 213); */
 border-bottom: 2px solid #dadada;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: start;
+gap: 2vh;
 }
 #rap{
 display: flex;
-position: absolute;
-left: 15%;
-top: 5%;
+/* position: absolute; */
+/* left: 15%; */
+/* top: 5%; */
 
 }
 .ri-bank-card-fill{
@@ -155,20 +180,20 @@ font-weight: 400;
 
 }
 .m{
-margin-top: 15%;
-margin-left: 15%;
+/* margin-top: 15%; */
+/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
 .n{
-margin-top: 6%;
-margin-left: 15%;
+/* margin-top: 6%; */
+/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
 .o{
-margin-top: 6%;
-margin-left: 15%;
+/* margin-top: 6%; */
+/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
