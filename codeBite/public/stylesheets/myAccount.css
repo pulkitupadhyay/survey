@@ -16,21 +16,45 @@ font-family: Gilroy;
 
 #main{
 position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2vw;
 width: 100%;
 height: 100%;
-background-color: #dadada;
+/* background-color: #e21717; */
 }
+<<<<<<< HEAD
 
 .upbox{
 position: relative;
+=======
+/* -------------left--------------------- */
+#left{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid black;
+  width: 23vw;
+  height: 90vh;
+  /* background-color: #3498db; */
+}
+#right{
+  width: 60vw;
+  height: 90vh;
+  background-color: #ffffff;
+  }
+#left #upbox{
+/* position: relative; */
+>>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 display: flex;
 align-items: center;
-position: absolute;
-top: 3vh;
-left: 8vw;
-width: 23vw;
-height: 7vh;
-background-color: #fff;
+/* position: absolute; */
+/* top: 3vh; */
+/* left: 8vw; */
+width: 100%;
+height: 10vh;
+/* background-color: #ba0909; */
 }
 .imgbox{
 width: 6vh;
@@ -52,6 +76,7 @@ border-radius: 50%;
 font-size: 30px;
 margin-left: 15px;
 }
+<<<<<<< HEAD
 .midbox{
 position: relative;
 position: absolute;
@@ -60,30 +85,43 @@ left: 8vw;
 width: 23vw;
 height: 75vh;
 background-color: #fff;
+=======
+
+/*  -------------------------------midbox----------------- */
+#left #midbox{
+/* position: relative; */
+/* position: absolute;   */
+/* top: 17vh; */
+/* left: 8vw; */
+width: 100%;
+height: 70vh;
+/* background-color: #026700; */
+>>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 font-family: Gilroy;
 }
 .order {
 display: flex;
-align-items: center;
+align-items: start;
+padding-left: 2vw;
 width: 23vw;
 margin-top: 1px;
-background-color: white;
+/* background-color: white; */
 height: 6vh;
-margin-top: -34px;
+/* margin-top: -34px; */
 border-bottom: 2px solid #dadada;
 }
 .ri-arrow-up-circle-fill{
 font-size: 27px;
-margin-left: 20px;
+/* margin-left: 20px; */
 
 }
 .ri-skip-right-line{
 font-size: 20px;
-margin-left: 90px;
+/* margin-left: 90px; */
 }
 .order>h3{
 font-size: 18px;
-margin-left: 12px;
+/* margin-left: 12px; */
 font-family: "Gilroy";
 font-weight: 500;
 
@@ -91,7 +129,7 @@ font-weight: 500;
 .account{
   padding-left: 2vw;
 position: relative;
- position: absolute;
+ /* position: absolute; */
  width: 100%;
  height: 30%;
  font-family: "Gilroy";
@@ -142,9 +180,9 @@ font-weight: 500;
 
 .payment{
 padding-left: 2vw;
-position: relative;
-position: absolute;
-top: 33%;
+/* position: relative; */
+/* position: absolute; */
+/* top: 33%; */
 width: 100%;
 height: 30%;
 font-family: "Gilroy";
@@ -158,89 +196,114 @@ gap: 2vh;
 }
 .rap{
 display: flex;
+<<<<<<< HEAD
+=======
+gap: 3vw;
+>>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 }
 .ri-bank-card-fill{
-position: absolute;
+/* position: absolute; */
 font-size: 20px;
-top: 10%;
-margin-left: 210px;
+/* top: 10%; */
+/* margin-left: 210px; */
 }
 
 #rap>h3{
 font-family: "Gilroy";
 font-weight: 400;
-
-
 }
+
 .m{
 font-family: "Gilroy";
 font-weight: 500;
 }
+
 .n{
-/* margin-top: 6%; */
-/* margin-left: 15%; */
-font-family: "Gilroy";
-font-weight: 500;
-}
-.o{
-/* margin-top: 6%; */
-/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
 
+.o{
+font-family: "Gilroy";
+font-weight: 500;
+}
+
+<<<<<<< HEAD
 .others{
 position: absolute;
 bottom: 5%;
+=======
+#others{
+  padding-left: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1.5vh;
+/* position: absolute; */
+/* bottom: 5%; */
+>>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 width: 100%;
 height: 30%;
 
 
     /* background-color: aqua; */
 }
+<<<<<<< HEAD
 .others>h3{
 position: absolute;
 top: 5%;
 left: 15%;
+=======
+#others>h3{
+/* position: absolute; */
+/* top: 5%; */
+/* left: 15%; */
+>>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 font-family: "Gilroy";
 font-weight: 500;
 }
 .w{
-margin-top: 12%;
-margin-left: 15%;
+/* margin-top: 12%; */
+/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
 .x{
-margin-top: 4%;
-margin-left: 15%;
+/* margin-top: 4%; */
+/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
 .y{
-margin-top: 4%;
-margin-left: 15%;
+/* margin-top: 4%; */
+/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
 .z{
-margin-top: 4%;
-margin-left: 15%;
+/* margin-top: 4%; */
+/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
 
+/* --------------------------bottombox--------------------- */
 
+<<<<<<< HEAD
 
 .bottombox{
+=======
+#left #bottombox{
+>>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 display: flex;
 align-items: center;
-position: absolute;
-bottom: 1vh;
-left: 8vw;
+/* position: absolute; */
+/* bottom: 1vh; */
+/* left: 8vw; */
 width: 23vw;
 height: 6vh;
-background-color: #fff;
+/* background-color: #ec0a0a; */
 }
 .ri-logout-circle-line{
 font-size: 27px;
@@ -254,6 +317,7 @@ font-family: "Gilroy";
 font-weight: 500;
 
 }
+<<<<<<< HEAD
 .right{
 position: absolute;
 bottom: 7vh;
@@ -262,6 +326,9 @@ width: 60vw;
 height: 90vh;
 background-color: #fff;
 }
+=======
+
+>>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 
 
 
