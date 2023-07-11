@@ -10,19 +10,19 @@
 </head>
 <body>
      <div id="main">
-        <div class="left">
-            <div class="upbox">
-                    <div class="imgbox"> <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt=""> </div>
+        <div id="left">
+            <div id="upbox">
+                    <div id="imgbox"> <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt=""> </div>
                  <h3><%= user.Name %></h3>
                
             </div>
-            <div class="midbox">
-                <div class="order">
+            <div id="midbox">
+                <div id="order">
                     <i class="ri-arrow-up-circle-fill"></i>
                     <h3> <a href="/myOrders" style="text-decoration:none; color:black;"> MY ORDER'S  </a></h3>
                     <i class="ri-skip-right-line"></i>
                 </div>
-                <div class="account">
+                <div id="account">
                     <h3>ACCOUNT SETTINGS</h3>
                     <h4 class="a"> Profile Information </h4>
 
@@ -34,23 +34,16 @@
                  
                     <h4 class="c"> PAN Card Information</h4>
                 </div>
-<<<<<<< HEAD
-                <div class="payment">
-                    <div class="rap"> 
-                    <i class="ri-bank-card-fill"></i>
-                    <h3>PAYMENTS</h3>
-=======
                 <div id="payment">
                     <div id="rap"> 
                       <h3>PAYMENTS</h3>
                        <i class="ri-bank-card-fill"></i>
->>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
                     </div>
                     <h4 class="m">Gift Cards₹0</h4>
                     <h4 class="n">Saved UPI</h4>
                     <h4 class="o"> Saved Cards</h4>
                 </div>
-                <div class="others">
+                <div id="others">
                     <h3>OTHERS</h3>
                     <h4 class="w"> My Coupons</h4>
                     <h4 class="x">My Reviews & Ratings</h4>
@@ -59,7 +52,7 @@
                 </div>
                 
             </div>
-            <div class="bottombox">
+            <div id="bottombox">
                 <i class="ri-logout-circle-line"></i>
                 <form action="/logout" method="POST">
                     <button class="logoutbtn"><h3>LOGOUT</h3></button>
@@ -68,7 +61,7 @@
                 
             </div>
         </div>
-        <div class="right">
+        <div id="right">
             <button class="editbtn" id="showButton">Edit Profile</button>
 
 
@@ -121,6 +114,10 @@
                   <input type="text" id="country" name="country" placeholder="<%= user.country %>"  >
                 </div>
                 <div class="form-right">
+                 
+                
+
+
                     <label for="address">Address:</label>
 
                     <label for="city">City:</label>
@@ -136,12 +133,13 @@
                   <input type="text" id="line2" placeholder="<%= user.postal_code %>"  name="postal_code">
             
                   <button class="editbtn" type="submit" id="hiddenButton" style="display: none; ; top: 80%;">Save Changes</button>
-
+                  <img class="profileimg" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+             
                 </div>
-                <img class="profileimg" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+              
             
-              </div>
-            </form> 
+            </div>
+           </form> 
             
         </div> 
      <div>   

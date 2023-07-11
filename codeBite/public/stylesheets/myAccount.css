@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: Gilroy;
   src: url(/samarkan/Gilroy-Medium.ttf);
@@ -24,11 +23,6 @@ width: 100%;
 height: 100%;
 /* background-color: #e21717; */
 }
-<<<<<<< HEAD
-
-.upbox{
-position: relative;
-=======
 /* -------------left--------------------- */
 #left{
   display: flex;
@@ -46,7 +40,6 @@ position: relative;
   }
 #left #upbox{
 /* position: relative; */
->>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 display: flex;
 align-items: center;
 /* position: absolute; */
@@ -56,14 +49,14 @@ width: 100%;
 height: 10vh;
 /* background-color: #ba0909; */
 }
-.imgbox{
+#imgbox{
 width: 6vh;
 height: 6vh;
 background-color: rgb(231, 226, 118);
 border-radius: 50%;
 margin-left: 30px;
 }
-.imgbox img{
+#imgbox img{
 width: 6vh;
 height: 6vh;
 background-color: rgb(231, 226, 118);
@@ -72,20 +65,10 @@ border-radius: 50%;
 }
 
 
-.upbox>h3{
+#upbox>h3{
 font-size: 30px;
 margin-left: 15px;
 }
-<<<<<<< HEAD
-.midbox{
-position: relative;
-position: absolute;
-top: 17vh;
-left: 8vw;
-width: 23vw;
-height: 75vh;
-background-color: #fff;
-=======
 
 /*  -------------------------------midbox----------------- */
 #left #midbox{
@@ -96,10 +79,9 @@ background-color: #fff;
 width: 100%;
 height: 70vh;
 /* background-color: #026700; */
->>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 font-family: Gilroy;
 }
-.order {
+#order {
 display: flex;
 align-items: start;
 padding-left: 2vw;
@@ -119,14 +101,14 @@ font-size: 27px;
 font-size: 20px;
 /* margin-left: 90px; */
 }
-.order>h3{
+#order>h3{
 font-size: 18px;
 /* margin-left: 12px; */
 font-family: "Gilroy";
 font-weight: 500;
 
 }
-.account{
+#account{
   padding-left: 2vw;
 position: relative;
  /* position: absolute; */
@@ -141,7 +123,7 @@ position: relative;
  align-items: start;
  gap: 2vh;
 }
-.account>h3{
+#account>h3{
  /* position: absolute; */
  /* top: 5%; */
  /* left: 15%; */
@@ -178,7 +160,7 @@ font-weight: 500;
   font-size: 1.3vw;
 }
 
-.payment{
+#payment{
 padding-left: 2vw;
 /* position: relative; */
 /* position: absolute; */
@@ -194,12 +176,9 @@ justify-content: center;
 align-items: start;
 gap: 2vh;
 }
-.rap{
+#rap{
 display: flex;
-<<<<<<< HEAD
-=======
 gap: 3vw;
->>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 }
 .ri-bank-card-fill{
 /* position: absolute; */
@@ -228,11 +207,6 @@ font-family: "Gilroy";
 font-weight: 500;
 }
 
-<<<<<<< HEAD
-.others{
-position: absolute;
-bottom: 5%;
-=======
 #others{
   padding-left: 2vw;
   display: flex;
@@ -242,24 +216,15 @@ bottom: 5%;
   gap: 1.5vh;
 /* position: absolute; */
 /* bottom: 5%; */
->>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 width: 100%;
 height: 30%;
 
-
     /* background-color: aqua; */
 }
-<<<<<<< HEAD
-.others>h3{
-position: absolute;
-top: 5%;
-left: 15%;
-=======
 #others>h3{
 /* position: absolute; */
 /* top: 5%; */
 /* left: 15%; */
->>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 font-family: "Gilroy";
 font-weight: 500;
 }
@@ -290,12 +255,7 @@ font-weight: 500;
 
 /* --------------------------bottombox--------------------- */
 
-<<<<<<< HEAD
-
-.bottombox{
-=======
 #left #bottombox{
->>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 display: flex;
 align-items: center;
 /* position: absolute; */
@@ -310,25 +270,15 @@ font-size: 27px;
 margin-left: 20px;
 
 }
-.bottombox>h3{
+
+#bottombox>h3{
 font-size: 18px;
 margin-left: 12px;
 font-family: "Gilroy";
 font-weight: 500;
 
 }
-<<<<<<< HEAD
-.right{
-position: absolute;
-bottom: 7vh;
-right: 8vw;
-width: 60vw;
-height: 90vh;
-background-color: #fff;
-}
-=======
 
->>>>>>> 32a2df23476f853f67722d6176fba7d1e6ae1278
 
 
 
@@ -548,4 +498,4 @@ input:focus::placeholder {
 /* profile css here */
 
 
-/* profile css ends here  */
+/* profile css ends here  */
