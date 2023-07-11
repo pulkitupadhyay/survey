@@ -40,10 +40,7 @@
               <i class="ri-map-pin-line"></i> 
               <p>Stores</p>
             </div>
-            <div class="nav-link-i">
-              <i class="ri-account-circle-line"></i>
-             <a href="/myAccount" style="text-decoration: none;color:white;"> <p>Account</p></a>
-            </div>
+          
             <div class="nav-link-i">
               <i class="ri-account-circle-line"></i>
               <p>Wishlist</p>
@@ -55,7 +52,10 @@
             
           </div>
 
-          <div class="login-btn"><%= user[0].Name %></div>
+          <div class="myAccount">
+            <i class="ri-account-circle-line"></i>
+            <a href="/myAccount"> <%= user[0].Name %></a>
+          </div>
         </div>
 
 
