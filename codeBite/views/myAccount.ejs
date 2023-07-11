@@ -10,19 +10,19 @@
 </head>
 <body>
      <div id="main">
-        <div id="left">
-            <div id="upbox">
-                    <div id="imgbox"> <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt=""> </div>
+        <div class="left">
+            <div class="upbox">
+                    <div class="imgbox"> <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt=""> </div>
                  <h3><%= user.Name %></h3>
                
             </div>
-            <div id="midbox">
-                <div id="order">
+            <div class="midbox">
+                <div class="order">
                     <i class="ri-arrow-up-circle-fill"></i>
                     <h3> <a href="/myOrders" style="text-decoration:none; color:black;"> MY ORDER'S  </a></h3>
                     <i class="ri-skip-right-line"></i>
                 </div>
-                <div id="account">
+                <div class="account">
                     <h3>ACCOUNT SETTINGS</h3>
                     <h4 class="a"> Profile Information </h4>
 
@@ -34,8 +34,8 @@
                  
                     <h4 class="c"> PAN Card Information</h4>
                 </div>
-                <div id="payment">
-                    <div id="rap"> 
+                <div class="payment">
+                    <div class="rap"> 
                     <i class="ri-bank-card-fill"></i>
                     <h3>PAYMENTS</h3>
                     </div>
@@ -43,7 +43,7 @@
                     <h4 class="n">Saved UPI</h4>
                     <h4 class="o"> Saved Cards</h4>
                 </div>
-                <div id="others">
+                <div class="others">
                     <h3>OTHERS</h3>
                     <h4 class="w"> My Coupons</h4>
                     <h4 class="x">My Reviews & Ratings</h4>
@@ -52,7 +52,7 @@
                 </div>
                 
             </div>
-            <div id="bottombox">
+            <div class="bottombox">
                 <i class="ri-logout-circle-line"></i>
                 <form action="/logout" method="POST">
                     <button class="logoutbtn"><h3>LOGOUT</h3></button>
@@ -61,7 +61,7 @@
                 
             </div>
         </div>
-        <div id="right">
+        <div class="right">
             <button class="editbtn" id="showButton">Edit Profile</button>
 
 

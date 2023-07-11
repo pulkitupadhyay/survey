@@ -21,7 +21,7 @@ height: 100%;
 background-color: #dadada;
 }
 
-#upbox{
+.upbox{
 position: relative;
 display: flex;
 align-items: center;
@@ -32,14 +32,14 @@ width: 23vw;
 height: 7vh;
 background-color: #fff;
 }
-#imgbox{
+.imgbox{
 width: 6vh;
 height: 6vh;
 background-color: rgb(231, 226, 118);
 border-radius: 50%;
 margin-left: 30px;
 }
-#imgbox img{
+.imgbox img{
 width: 6vh;
 height: 6vh;
 background-color: rgb(231, 226, 118);
@@ -48,11 +48,11 @@ border-radius: 50%;
 }
 
 
-#upbox>h3{
+.upbox>h3{
 font-size: 30px;
 margin-left: 15px;
 }
-#midbox{
+.midbox{
 position: relative;
 position: absolute;
 top: 17vh;
@@ -62,7 +62,7 @@ height: 75vh;
 background-color: #fff;
 font-family: Gilroy;
 }
-#order {
+.order {
 display: flex;
 align-items: center;
 width: 23vw;
@@ -81,14 +81,14 @@ margin-left: 20px;
 font-size: 20px;
 margin-left: 90px;
 }
-#order>h3{
+.order>h3{
 font-size: 18px;
 margin-left: 12px;
 font-family: "Gilroy";
 font-weight: 500;
 
 }
-#account{
+.account{
   padding-left: 2vw;
 position: relative;
  position: absolute;
@@ -103,7 +103,7 @@ position: relative;
  align-items: start;
  gap: 2vh;
 }
-#account>h3{
+.account>h3{
  /* position: absolute; */
  /* top: 5%; */
  /* left: 15%; */
@@ -140,7 +140,7 @@ font-weight: 500;
   font-size: 1.3vw;
 }
 
-#payment{
+.payment{
 padding-left: 2vw;
 position: relative;
 position: absolute;
@@ -156,12 +156,8 @@ justify-content: center;
 align-items: start;
 gap: 2vh;
 }
-#rap{
+.rap{
 display: flex;
-/* position: absolute; */
-/* left: 15%; */
-/* top: 5%; */
-
 }
 .ri-bank-card-fill{
 position: absolute;
@@ -171,17 +167,12 @@ margin-left: 210px;
 }
 
 #rap>h3{
-/* position: absolute;
-top: 5%;
-left: 15%; */
 font-family: "Gilroy";
 font-weight: 400;
 
 
 }
 .m{
-/* margin-top: 15%; */
-/* margin-left: 15%; */
 font-family: "Gilroy";
 font-weight: 500;
 }
@@ -198,15 +189,16 @@ font-family: "Gilroy";
 font-weight: 500;
 }
 
-#others{
+.others{
 position: absolute;
 bottom: 5%;
 width: 100%;
 height: 30%;
 
+
     /* background-color: aqua; */
 }
-#others>h3{
+.others>h3{
 position: absolute;
 top: 5%;
 left: 15%;
@@ -240,7 +232,7 @@ font-weight: 500;
 
 
 
-#bottombox{
+.bottombox{
 display: flex;
 align-items: center;
 position: absolute;
@@ -255,15 +247,14 @@ font-size: 27px;
 margin-left: 20px;
 
 }
-
-#bottombox>h3{
+.bottombox>h3{
 font-size: 18px;
 margin-left: 12px;
 font-family: "Gilroy";
 font-weight: 500;
 
 }
-#right{
+.right{
 position: absolute;
 bottom: 7vh;
 right: 8vw;
