@@ -19,6 +19,13 @@ html,body{
     height: 100%;
     background-color: #dadada;
 }
+#back{
+  position: absolute;
+  width: 5vw;
+  top: 6px;
+  left: 11px;
+  
+}
 
 #upbox{
     position: relative;
@@ -247,6 +254,7 @@ body {
     margin: 0;
     padding: 0;
   }
+  
 
   .container {
     max-width: 800px;
@@ -259,14 +267,15 @@ body {
     color: #333;
   }
 
-#orderbox{
+.orderbox{
+     overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: space-around;
     position: absolute;
     left: 0vw;
     top: 15vh;
-    height: 30vh;
+    /* height: 30vh; */
     width: 100%;
     /* background-color: #d08080; */
 }
@@ -275,7 +284,12 @@ body {
     height: 25vh;
     width: 25%;
     background-color: #535151;
-    background-image: url("https://images.unsplash.com/photo-1678874780591-0f4ba3fe5dde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1780&q=80");
+    
+   
+}
+#proimg > img{
+    height: 25vh;
+    width: 100%;
     object-fit: cover;
     background-size: cover;
 }
@@ -318,6 +332,8 @@ body {
 <body>
   
   <div id="main">
+
+    <a href="/myAccount">   <button id="back">Back</button> </a>
     <div id="left">
         <div id="upbox">
                 <div id="imgbox"></div>
@@ -362,14 +378,15 @@ body {
     <div id="right">
         <div class="container">
             <h1>My Orders</h1>
-       
-            <div id="orderbox">
+
+            <% for(i=0; i<orders.length; i++){ %>
+            <div class="orderbox">
                 <div id="proimg">
-                    <!-- <img src="" alt=""> -->
+                    <img src="/upload/<%= products[i].image1%>" alt="">
                 </div>
                 <div id="prodetails">
                    <div id="aaa">
-                    <h3>Order-Id - </h3> 
+                    <h3>Order-Id -  </h3> 
                     <h3>Customer-Name -  </h3>
                     <h3> Seller-Name- </h3>  
                     <h3>Quantity - </h3> 
@@ -377,18 +394,20 @@ body {
                    </div>
 
                     <div id="bbb">
-                        <h4> fuofdffd29837</h4>
-                        <h4>Prem</h4>
-                        <h4>Pulkit</h4>
+                        <h4> <%= orders[i]._id%> </h4>
+                        <h4> <%= customers.Name %></h4>
+                        <h4><%= sellers.Name %></h4>
                         <h4>1</h4>
-                        </h3><h4>Bhopal pincode-422022</h4>
+                        </h3><h4> <%= customers.city %> - <%= customers.postal_code %> </h4>
                        
                     </div>
                     <button>Cancel Order</button>
             </div>
             </div>
-          
+            <%}%>
+      
           </div>
+        </div>
     </div>
  </div> 
   

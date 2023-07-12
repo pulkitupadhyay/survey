@@ -632,7 +632,7 @@ span {
 }
 
 .footer-overlay {
-  padding: 80px 40px;
+  padding: 30px 110px;
   position: absolute;
   display: flex;
   width: 100%;
@@ -641,14 +641,19 @@ span {
 }
 
 section {
-  width: calc(100% / 4);
+  width: calc(100% / 3);
   height: 100%;
   color: #e5e5e5;
 }
-
+#rugs-footer {
+  margin-top: 4vh;
+  margin-left: 4vw;
+  font-family: 'sama' !important;
+}
 @media (max-width: 500px) {
   #main {
     overflow: hidden;
+    object-fit: cover;
   }
   .video1 {
     width: 100%;

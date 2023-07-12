@@ -45,9 +45,7 @@ router.get('/', async function (req, res, next) {
 
 // *********************payment interation here************
 router.post('/price/payment', isLoggedIn, (req, res) => {
-  if (!req.body.Token) {
-    res.render('notLogin');
-  }
+ 
 
   console.log('reqbb');
   console.log(req.body.price);

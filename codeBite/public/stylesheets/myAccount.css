@@ -24,6 +24,14 @@ height: 100%;
 /* background-color: #e21717; */
 }
 /* -------------left--------------------- */
+#back{
+  position: absolute;
+  width: 5vw;
+  top: 6px;
+  left: 11px;
+  
+}
+
 #left{
   display: flex;
   flex-direction: column;
